@@ -181,6 +181,15 @@ class RequestHandler(web.RequestHandler):
             value = self.normalize_mapping(value)
         return value
 
+    def query(self, mapping):
+        """Create a SQLAlchemy Query object for the given mapping
+
+        :param apiary.models.base.Base mapping: The mapping to query
+        :rtype: sqlalchemy.query.Query
+
+        """
+        return self.database.query(mapping)
+
     def restful_write(self, value):
         """Handle the outbound writing for the request, applying logic against
         the Accept header to decide how the value should be returned.
