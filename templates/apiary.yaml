@@ -16,8 +16,8 @@ Application:
     no_keep_alive: false
     port: 8000
     xheaders: true
-  static_path: /Users/gmr/Source/apiary/static
-  template_path: /Users/gmr/Source/apiary/templates/httpd
+  static_path: /Users/gmr/Dropbox/Source/apiary/static
+  template_path: /Users/gmr/Dropbox/Source/apiary/templates/httpd
 
 Daemon:
   user: apiary
