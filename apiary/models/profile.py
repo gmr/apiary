@@ -20,6 +20,9 @@ class Profile(base.Base):
     distro_fk = sqlalchemy.ForeignKey('%s.id' %
                                       distribution.Distribution.__tablename__)
     distribution = sqlalchemy.Column(types.UUID, distro_fk, nullable=False)
+    parent = sqlalchemy.Column(sqlalchemy.TEXT,
+                               sqlalchemy.ForeignKey('system_profiles.name'),
+                               nullable=True)
     kernel_options = sqlalchemy.Column(sqlalchemy.TEXT)
 
     def __repr__(self):
