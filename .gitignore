@@ -35,3 +35,4 @@ data
 atlassian-ide-plugin.xml
 .idea
 etc
+docs/_build
