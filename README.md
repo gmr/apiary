@@ -1,7 +1,7 @@
 apiary
 ======
-Apiary is a modern data-center management tool that includes provisioning,
-configuration management and inventory control.
+Apiary is a modern data-center management tool that takes a holistic approach to
+provisioning, configuration management and inventory control.
 
 Inventory Management
 --------------------
@@ -31,6 +31,9 @@ Configuration Management
 ------------------------
 Apiary uses the same configuration management concepts if you are provisioning a
 new system or deploying configuration changes to an existing system:
+
+- Profiles provide an abstraction on top of distributions allowing for different
+hardware and software profiles using the same distribution.
 
 - Packages are a natural mapping to distribution specific package management
 conventions such as rpm files in RedHat based distributions or .deb files in
