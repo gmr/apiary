@@ -1,0 +1,55 @@
+%YAML 1.2
+---
+Application:
+  cookie_secret: fc360bf9-979d-4de6-b97c-aff68e856192
+  bind:
+    enabled: true
+    paths:
+      zonefiles: data
+  database:
+    backend: sqlite
+    file: data/apiary.sqlite3
+  debug: true
+  gzip: false
+  login_url: /login
+  httpd:
+    no_keep_alive: false
+    port: 8000
+    xheaders: true
+  static_path: /Users/gmr/Source/apiary/static
+  template_path: /Users/gmr/Source/apiary/templates/httpd
+
+Daemon:
+  user: apiary
+  group: daemon
+  pidfile: /var/run/apiary/apiary.pid
+
+Logging:
+  version: 1
+  formatters:
+    verbose:
+      format: '%(levelname) -10s %(asctime)s %(process)-6d %(processName) -15s %(name) -10s %(funcName) -20s: %(message)s'
+      datefmt: '%Y-%m-%d %H:%M:%S'
+    syslog:
+      format: " %(levelname)s <PID %(process)d:%(processName)s> %(name)s.%(funcName)s(): %(message)s"
+  filters: []
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: verbose
+      debug_only: true
+    syslog:
+      class: logging.handlers.SysLogHandler
+      facility: local6
+      address: /var/run/syslog
+      formatter: syslog
+  loggers:
+    apiary:
+      level: DEBUG
+      propagate: true
+      handlers: [console, syslog]
+    urllib3:
+      level: ERROR
+      propagate: true
+  disable_existing_loggers: false
+  incremental: false

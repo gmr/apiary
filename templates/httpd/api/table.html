@@ -1,0 +1,55 @@
+{% extends "../base.html" %}
+{% block title %}{{values['values'][0].__class__.__name__ if values['values'] else '0 results'}} List{% end %}
+{% block content %}
+{% set start = (values.get('offset') or 0) + 1  %}
+<div class="container">
+  {% if values['values'] %}
+  <div class="row bottom-rule">
+    <div class="span10">
+      <h1>{{values['values'][0].__class__.__name__ if values['values'] else '0 results'}} List</h1>
+    </div>
+    <div class="span2 pull-right">
+      <table class="table-condensed table">
+        <thead>
+          <tr>
+            {% if values.get('filter') %}<th>Filter</th>{% end %}
+            {% if values.get('limit') %}<th>Limit</th>{% end %}
+            {% if values.get('offset') %}<th>Offset</th>{% end %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% if values.get('filter') %}<td>{{values['filter']}}</td>{% end %}
+            {% if values.get('limit') %}<td>{{values['limit']}}</td>{% end %}
+            {% if values.get('offset') %}<td>{{values['offset']}}</td>{% end %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            {% for key in  values['values'][0].__table__.columns.keys() %}
+            <th>{{key}}</th>
+            {% end %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for row in values['values'] %}
+        <tr>
+          {% for key in row.__table__.columns.keys() %}
+          <td>{{getattr(row, key)}}</td>
+          {% end %}
+        </tr>
+        {% end %}
+        </tbody>
+      </table>
+      <p class="pull-right">Row{% if len(values['values']) > 1 %}s{% end %} {{start}} &ndash; {{len(values['values']) + (values.get('offset') or 0)}}</p>
+    </div>
+  </div>
+  {% end %}
+</div>
+{% end %}

@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+architectures:
+  - i386
+  - x86_64
+
+breeds:
+  - redhat
+  - ubuntu

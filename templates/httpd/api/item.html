@@ -1,0 +1,13 @@
+{% extends "../base.html" %}
+{% block title %}{{value.__class__.__name__}}: {% if hasattr(value, 'name') %}{{value.name}}{% elif hasattr(value, id) %}{{value.id}}{% end %}{% end %}
+{% block content %}
+<div class="container">
+  <h1>{{value.__class__.__name__}}: {% if hasattr(value, 'id') %}{{value.id}}{% elif hasattr(value, name) %}{{value.name}}{% end %}</h1>
+  <hr>
+  <dl class="dl-horizontal">
+    {% for key in value.__table__.columns.keys() %}
+    <dt>{{key}}</dt><dd>{{getattr(value, key)}}</dd>
+    {% end %}
+  </dl>
+</div>
+{% end %}
