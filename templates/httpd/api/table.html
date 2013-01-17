@@ -40,8 +40,8 @@
         <tbody>
         {% for row in values['values'] %}
         <tr>
-          {% for key in row.__table__.columns.keys() %}
-          <td>{{getattr(row, key)}}</td>
+          {% for offset, key in enumerate(row.__table__.columns.keys()) %}
+          <td>{% if offset == 0 %}<a href="/api/{{str(row.__class__.__name__).lower()}}/{{getattr(row, key)}}">{% end %}{{getattr(row, key)}}{% if offset == 0 %}</a>{% end %}</td>
           {% end %}
         </tr>
         {% end %}
