@@ -13,7 +13,7 @@ class Breed(base.Base):
     related distributions such as centos and ubuntu.
 
     """
-    __tablename__ = 'distro_breeds'
+    __tablename__ = 'distribution_breeds'
 
     name = sqlalchemy.Column(sqlalchemy.TEXT, primary_key=True, nullable=False)
 

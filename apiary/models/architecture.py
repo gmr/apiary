@@ -12,7 +12,7 @@ class Architecture(base.Base):
     architecture (x86_64, i386, etc) for a distribution
 
     """
-    __tablename__ = 'distro_architectures'
+    __tablename__ = 'distribution_architectures'
 
     name = sqlalchemy.Column(sqlalchemy.TEXT, primary_key=True, nullable=False)
 
