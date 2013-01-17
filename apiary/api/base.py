@@ -181,7 +181,7 @@ class RequestHandler(web.RequestHandler):
             value = self.normalize_mapping(value)
         return value
 
-    def query(self, mapping):
+    def new_query(self, mapping):
         """Create a SQLAlchemy Query object for the given mapping
 
         :param apiary.models.base.Base mapping: The mapping to query
