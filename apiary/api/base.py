@@ -2,6 +2,7 @@
 Base API Class
 
 """
+from lxml import etree
 import json
 import logging
 import msgpack
@@ -23,7 +24,12 @@ MIME_TYPES = {JSONP: 'application/javascript',
 
 
 class RequestHandler(web.RequestHandler):
+    """Generic base RequestHandler for the RESTful API set that minimizes the
+    duplicate functionality across all the APIs. This RequestHandler will send
+    different types of output for the request based upon the Accept header and
+    will take SQLAlchemy models/mappings and extract the data out.
 
+    """
     JSONP_METHOD = 'on_jsonp'
 
     def initialize(self):
@@ -42,6 +48,40 @@ class RequestHandler(web.RequestHandler):
     def assign_attributes(self, mapping, kwargs):
         for key in mapping.__table__.columns.keys():
             setattr(mapping, key, self.parameter_value(key, kwargs))
+
+    def generate_xml(self, value_in):
+
+        if isinstance(value_in, dict):
+            print value_in
+            root = etree.Element(value_in['values'][0].__class__.__name__)
+
+            for key in ['filter', 'limit', 'offset']:
+                node = etree.Element(key)
+                node.text = str(value_in.get(key))
+                root.append(node)
+
+            values = etree.Element('values')
+            for row in value_in['values']:
+                item = etree.Element(row.__class__.__name__)
+                for key in row.__table__.columns.keys():
+                    value = getattr(row, key)
+                    if isinstance(value, uuid.UUID):
+                        value = str(value)
+                    node = etree.Element(key)
+                    node.text = value
+                    item.append(node)
+                values.append(item)
+            root.append(values)
+        else:
+            root = etree.Element(value_in.__class__.__name__)
+            for key in value_in.__table__.columns.keys():
+                value = getattr(value_in, key)
+                if isinstance(value, uuid.UUID):
+                    value = str(value)
+                node = etree.Element(key)
+                node.text = value
+                root.append(node)
+        return etree.tostring(root, pretty_print=True)
 
     def normalize_mapping_list(self, values_in):
         values_out = list()
@@ -109,8 +149,12 @@ class RequestHandler(web.RequestHandler):
             self.set_header(CONTENT_TYPE, MIME_TYPES[MSGPACK])
             return self.finish(msgpack.dumps(self.normalize(value)))
 
+        if MIME_TYPES[XML] in accept:
+            self.set_header(CONTENT_TYPE, MIME_TYPES[XML])
+            return self.finish(self.generate_xml(value))
+
         # JSON
-        self.write(self.normalize(value))
+        self.finish(self.normalize(value))
 
     def write_query_results(self, mapping):
         limit = self.get_argument('limit', None)

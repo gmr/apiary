@@ -31,6 +31,7 @@ packages = ['apiary',
 
 install_requires = ['clihelper',
                     'lxml',
+                    'msgpack',
                     'requests',
                     'sqlalchemy>=0.8',
                     'tornado']
