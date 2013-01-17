@@ -9,7 +9,12 @@ import os
 import yaml
 
 from apiary.models import base
-from apiary.models import distro
+from apiary.models import architecture
+from apiary.models import breed
+from apiary.models import distribution
+from apiary.models import profile
+from apiary.models import system
+
 
 DEFAULTS_PATH = 'templates/defaults.yaml'
 LOGGER = logging.getLogger(__name__)
@@ -34,24 +39,27 @@ def main(database_name):
     session = Session()
     base.Base.metadata.create_all(engine)
 
-    for architecture in defaults.get('architectures'):
-        LOGGER.info('Adding %s to available distribution architectures',
-                    architecture)
-        session.add(distro.Architecture(architecture))
+    for arch in defaults.get('architectures'):
+        LOGGER.info('Adding %s to available distribution architectures', arch)
+        session.add(architecture.Architecture(arch))
 
-    for breed in defaults.get('breeds'):
-        LOGGER.info('Adding %s to available distribution breeds', breed)
-        session.add(distro.Architecture(breed))
+    for value in defaults.get('breeds'):
+        LOGGER.info('Adding %s to available distribution breeds', value)
+        session.add(breed.Breed(value))
 
-
-    d = distro.Distribution(name='CentOS', version='6.3', breed='redhat', architecture='x86_64')
+    d = distribution.Distribution(name='CentOS', version='6.3', breed='redhat',
+                                  architecture='x86_64')
     session.add(d)
+
+    p = profile.Profile(name='CentOS 6.3 x86-64', distribution=d)
+
+
     session.commit()
     LOGGER.info('Database created and defaults populated')
 
     with open('templates/apiary.yaml') as handle:
         config = yaml.load(handle.read())
-    config['Application']['database'] = 'sqlite:///%s' % database_name
+    config['Application']['database']['file'] = database_name
     with open('etc/apiary.yaml', 'w') as handle:
         handle.write(yaml.dump(config, version=(1,2), allow_unicode=True,
                                default_flow_style=False, width=120))
