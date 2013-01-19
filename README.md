@@ -74,3 +74,15 @@ want to run multiple Hadoop  clusters, this server should be assigned to a
 distinct colony for the Hadoop cluster it is to belong in. Finally, the server
 should be tagged with its role in the cluster, indicating if it's a name node,
 secondary name node, job tracker, or some other role.
+
+GLYPHICONS attribution
+----------------------
+Included in the web interface is the use of the icons from the GLYPHICONS FREE
+package form glyphicons.com and are licensed under the Creative Commons
+Attribution 3.0 Unported (CC BY 3.0) license. You can support the  Jan Kovařík's
+excellent work on GLYPHICONS by purchasing a license at http://glyphicons.com.
+
+The combined PNG and CSS positioning was copied from Eric Kryski's
+bootstrap-template project on github:
+
+https://github.com/ekryski/bootstrap-template
