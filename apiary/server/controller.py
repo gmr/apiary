@@ -42,21 +42,28 @@ class ApiaryController(clihelper.Controller):
         if self.is_running:
             self._shutdown()
 
-    @property
     def _application_settings(self):
         """Return a dictionary of settings that are valid for a
-        tornado.web.Application from the configuration file Application
-        settings.
+        tornado.web.Application and a dictionary of configuration values for
+        apiary from the Application section of the config file.
 
-        :rtype: dict
+        :return dict, dict: Tornado Settings, Apiary Configuration
 
         """
-        config = dict(self._get_application_config())
-        for key in config.keys():
+        # Create a dictionary to hold the two types of config values
+        settings = dict(self._get_application_config())
+        config = dict()
+
+        # Assign any non-Tornado item to the config dict, removing from settings
+        for key in settings.keys():
             if key not in TORNADO_SETTINGS:
-                del config[key]
+                config[key] = settings[key]
+                del settings[key]
+
+        # Always disable xsrf_cookies by default
         config['xsrf_cookies'] = False
-        return config
+
+        return settings, config
 
     def _get_routes(self):
         """Return the routes from the API and Interface packages
@@ -121,13 +128,24 @@ class ApiaryController(clihelper.Controller):
         passing in configuration as settings to the web Application
 
         """
-        self._application = web.Application(self._get_routes(),
-                                            **self._application_settings)
+        settings, config = self._application_settings()
+
+        # Create the web application
+        self._application = web.Application(self._get_routes(), **settings)
+
+        # Start the HTTP Server
         self._application.listen(**self._httpd_config)
-        config = self._get_application_config()
-        if 'locale_path' in config:
-            locale.load_translations(config['locale_path'])
+
+        # If translations are provided, load them
+        if 'locale_path' in settings:
+            locale.load_translations(settings['locale_path'])
+
+        # Assign the config to an apiary attribute of the application
+        self._application.apiary_config = config
+
+        # Create the database session
         self._application.database = self._new_db_session()
+
         LOGGER.info('Apiary %s HTTP service started on port %s',
                     apiary.__version__, self._httpd_config['port'])
 
