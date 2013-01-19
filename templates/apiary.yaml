@@ -11,11 +11,29 @@ Application:
     file: data/apiary.sqlite3
   debug: true
   gzip: false
-  login_url: /login
   httpd:
     no_keep_alive: false
     port: 8000
     xheaders: true
+  ldap:
+    groups:
+      access:
+       - cn=Network Operations,ou=Groups,dc=your,dc=org
+      inventory:
+       - cn=Network Operations,ou=Groups,dc=your,dc=org
+      config_management:
+       - cn=Network Operations,ou=Groups,dc=your,dc=org
+      provisioning:
+       - cn=Network Operations,ou=Groups,dc=your,dc=org
+    uri: ldap://ldap-server-uri
+    base_dn:
+      groups: ou=Groups,dc=your,dc=org
+      people: ou=People,dc=your,dc=org
+  login_url: /login
+  session:
+    cookie_name: session
+    duration: 3600
+
   static_path: /Users/gmr/Dropbox/Source/apiary/static
   template_path: /Users/gmr/Dropbox/Source/apiary/templates/httpd
 

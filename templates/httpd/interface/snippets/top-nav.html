@@ -1,0 +1,35 @@
+<div class="navbar navbar-fixed-top" xmlns="http://www.w3.org/1999/html">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#"><img src="{{static_url('img/logo-small.png')}}" alt="Apiary"></a>
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+          {% if current_user %}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              {{current_user.get('displayName')}}
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/preferences"><i class="icon-cog icon"></i> Preferences</a></li>
+            </ul>
+          </li>
+          <li class="divider-vertical"></li>
+          <li><a href="/logout"><i class="icon-road"></i> Logout</a></li>
+          {% else %}
+          <li><a href="/login"><i class="icon-user icon-yellow"></i> Login</a></li>
+          {% end %}
+        </ul>
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Systems</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,8 @@
 @maroon:                #a00a20;
 @maroonDark:            darken(@maroon, 15%);
 
+@logoYellow:            #ffc400;
+
 
 // Grays
 // -------------------------
@@ -40,7 +42,7 @@
 
 // Links
 // -------------------------
-@linkColor:             @maroon;
+@linkColor:             @gray;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
@@ -90,7 +92,7 @@
 @btnBackgroundHighlight:            darken(@white, 10%);
 @btnBorder:                         #bbb;
 
-@btnPrimaryBackground:              @linkColor;
+@btnPrimaryBackground:              @blue;
 @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
 
 @btnInfoBackground:                 #5bc0de;
@@ -153,8 +155,8 @@
 
 // Sprite icons path
 // -------------------------
-@iconSpritePath:          "../img/glyphicons-halflings.png";
-@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+@iconSpritePath:          "../img/icons/glyphicons.png";
+@iconWhiteSpritePath:     "../img/icons/glyphicons-white.png";
 
 
 // Input placeholder text color
@@ -183,18 +185,18 @@
 @navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
 @navbarHeight:                    40px;
-@navbarBackgroundHighlight:       @grayLighter;
+@navbarBackgroundHighlight:       @white;
 @navbarBackground:                darken(@navbarBackgroundHighlight, 2%);
-@navbarBorder:                    darken(@navbarBackgroundHighlight, 15%);
+@navbarBorder:                    @logoYellow;
 
 @navbarText:                      @black;
-@navbarLinkColor:                 @grayDark;
-@navbarLinkColorHover:            @maroon;
-@navbarLinkColorActive:           @maroonDark;
+@navbarLinkColor:                 @gray;
+@navbarLinkColorHover:            @logoYellow;
+@navbarLinkColorActive:           @gray;
 @navbarLinkBackgroundHover:       transparent;
 @navbarLinkBackgroundActive:      transparent;
 
-@navbarBrandColor:                @grayDark;
+@navbarBrandColor:                @logoYellow;
 
 // Inverted navbar
 @navbarInverseBackground:                #111111;

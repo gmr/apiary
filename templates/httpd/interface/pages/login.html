@@ -1,0 +1,47 @@
+{% extends "../base.html" %}
+{% block title %}Login{% end %}
+
+{% block breadcrumb %}
+<li><a href="/login" class="active">{{_("Login")}}</a>
+{% end %}
+
+{% block page_content %}
+  {% if 'login_error' in globals() and login_error %}
+    {% set error = _('Could not validate your credentials.') %}
+  {% elif 'connection_error' in globals() and connection_error %}
+    {% set error = _('Could not connect to LDAP server.') %}
+  {% else %}
+    {% set error = None %}
+  {% end %}
+  <div class="row-fluid align-center">
+    <div class="login-box">
+      <form class="form-horizontal well" method="post" action="/login">
+        <legend>{{_("Apiary Login")}}</legend>
+        {% if error %}
+        <div id="error-alert" class="alert alert-error">
+          <i class="icon-warning-sign icon-error"></i> <strong>{{_('Error')}}</strong>: {{error}}
+        </div>
+        {% else %}
+          <p>{{_("To login, enter your LDAP authentication credentials:")}}</p>
+        {% end %}
+        <div class="control-group">
+          <label class="control-label" for="inputUsername">Username</label>
+          <div class="controls">
+            <input type="text" id="inputUsername" placeholder="Username" name="username"{% if 'username' in globals() %} value="{{username}}"{% end %}>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="inputPassword">Password</label>
+          <div class="controls">
+            <input type="password" id="inputPassword" placeholder="Password" name="password">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn btn-primary">Authenticate</button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>
+{% end %}
