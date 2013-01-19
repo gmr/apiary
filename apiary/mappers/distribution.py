@@ -5,13 +5,13 @@ Distribution related models
 import sqlalchemy
 import uuid
 
-from apiary.models import architecture
-from apiary.models import base
-from apiary.models import breed
+from apiary.mappers import Base
+from apiary.mappers import architecture
+from apiary.mappers import breed
 from apiary import types
 
 
-class Distribution(base.Base):
+class Distribution(Base):
     """The top level object for an Operating System to install on systems is
     a Distribution.
 

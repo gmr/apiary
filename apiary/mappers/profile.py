@@ -4,12 +4,12 @@ Profile Model
 """
 import sqlalchemy
 
-from apiary.models import distribution
-from apiary.models import base
+from apiary.mappers import Base
+from apiary.mappers import distribution
 from apiary import types
 
 
-class Profile(base.Base):
+class Profile(Base):
     """Profiles allow hardware and software specific overrides for
     Distributions.
 

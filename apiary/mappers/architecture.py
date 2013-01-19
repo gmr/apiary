@@ -4,10 +4,10 @@ Distribution Architecture Model
 """
 import sqlalchemy
 
-from apiary.models import base
+from apiary.mappers import Base
 
 
-class Architecture(base.Base):
+class Architecture(Base):
     """Distribution Architecture model, used to specify the processor
     architecture (x86_64, i386, etc) for a distribution
 

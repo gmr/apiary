@@ -5,12 +5,12 @@ System Model
 import sqlalchemy
 import uuid
 
-from apiary.models import profile
-from apiary.models import base
+from apiary.mappers import Base
+from apiary.mappers import profile
 from apiary import types
 
 
-class System(base.Base):
+class System(Base):
     """Represents a unique system, physical or virtual"""
     __tablename__ = 'systems'
 

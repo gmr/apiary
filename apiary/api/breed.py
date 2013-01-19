@@ -2,14 +2,15 @@
 Breed API related Request Handlers
 
 """
-from apiary.api import base
-from apiary.models import breed
 import logging
+
+from apiary.mappers import breed
+from apiary import web
 
 LOGGER = logging.getLogger(__name__)
 
 
-class Breed(base.RequestHandler):
+class Breed(web.APIRequestHandler):
     """API interface for managing breed data"""
 
     JSONP_METHOD = 'on_breed'
@@ -18,7 +19,7 @@ class Breed(base.RequestHandler):
         """Get a single breed from the database.
 
         :param dict kwargs: Keyword arguments from the request
-        :rtype: apiary.models.breed.Breed
+        :rtype: apiary.mappers.breed.Breed
 
         """
         name = self.parameter_value('name', kwargs)
@@ -74,13 +75,13 @@ class Breed(base.RequestHandler):
 
         # Update
         self.assign_attributes(value, kwargs)
-        self.database.update(value)
+        self.database.merge(value)
         self.database.commit()
         LOGGER.info('Updated breed: %r', value)
         return self.set_status(204)
 
 
-class Breeds(base.RequestHandler):
+class Breeds(web.APIRequestHandler):
     """API interface for fetching a list of breeds"""
 
     JSONP_METHOD = 'on_breeds'

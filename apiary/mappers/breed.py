@@ -4,10 +4,10 @@ Distribution Breed Model
 """
 import sqlalchemy
 
-from apiary.models import base
+from apiary.mappers import Base
 
 
-class Breed(base.Base):
+class Breed(Base):
     """Distribution breeds specify the top level project or project for a
     distribution such as redhat, debian, etc. This allows for common paths for
     related distributions such as centos and ubuntu.

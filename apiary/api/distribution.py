@@ -2,14 +2,15 @@
 API Distribution related Request Handlers
 
 """
-from apiary.api import base
-from apiary.models import distribution
 import logging
+
+from apiary.mappers import distribution
+from apiary import web
 
 LOGGER = logging.getLogger(__name__)
 
 
-class Distribution(base.RequestHandler):
+class Distribution(web.APIRequestHandler):
     """API interface for managing distribution data"""
 
     JSONP_METHOD = 'on_distribution'
@@ -18,7 +19,7 @@ class Distribution(base.RequestHandler):
         """Get a single distribution from the database.
 
         :param dict kwargs: Keyword arguments from the request
-        :rtype: apiary.models.distribution.Distribution
+        :rtype: apiary.mappers.distribution.Distribution
 
         """
         dist_id = self.parameter_value('id', kwargs)
@@ -74,13 +75,13 @@ class Distribution(base.RequestHandler):
 
         # Update
         self.assign_attributes(value, kwargs)
-        self.database.update(value)
+        self.database.merge(value)
         self.database.commit()
         LOGGER.info('Updated distribution: %r', value)
         return self.set_status(204)
 
 
-class Distributions(base.RequestHandler):
+class Distributions(web.APIRequestHandler):
     """API interface for fetching a list of distributions"""
 
     JSONP_METHOD = 'on_distributions'

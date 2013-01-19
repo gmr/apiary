@@ -2,14 +2,15 @@
 Architecture API related Request Handlers
 
 """
-from apiary.api import base
-from apiary.models import architecture
 import logging
+
+from apiary.mappers import architecture
+from apiary import web
 
 LOGGER = logging.getLogger(__name__)
 
 
-class Architecture(base.RequestHandler):
+class Architecture(web.APIRequestHandler):
     """API interface for managing architecture data"""
 
     JSONP_METHOD = 'on_architecture'
@@ -18,7 +19,7 @@ class Architecture(base.RequestHandler):
         """Get a single architecture from the database.
 
         :param dict kwargs: Keyword arguments from the request
-        :rtype: apiary.models.architecture.Architecture
+        :rtype: apiary.mappers.architecture.Architecture
 
         """
         name = self.parameter_value('name', kwargs)
@@ -74,13 +75,13 @@ class Architecture(base.RequestHandler):
 
         # Update
         self.assign_attributes(value, kwargs)
-        self.database.update(value)
+        self.database.merge(value)
         self.database.commit()
         LOGGER.info('Updated architecture: %r', value)
         return self.set_status(204)
 
 
-class Architectures(base.RequestHandler):
+class Architectures(web.APIRequestHandler):
     """API interface for fetching a list of architectures"""
 
     JSONP_METHOD = 'on_architectures'
