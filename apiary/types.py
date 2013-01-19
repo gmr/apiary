@@ -2,15 +2,40 @@
 Definition of additional SQLAlchemy types
 
 """
+import json
 from sqlalchemy.dialects import mysql
 from sqlalchemy.dialects import postgres
-from sqlalchemy import types
+from sqlalchemy import types, TEXT
 import uuid
 
 import logging
 
 
 LOGGER = logging.getLogger(__name__)
+
+
+class JSONEncodedDict(types.TypeDecorator):
+    """Represents an immutable structure as a json-encoded string from
+    SQLAlchemy doc example
+
+    Usage::
+
+        JSONEncodedDict()
+
+    """
+
+    impl = TEXT
+
+    def process_bind_param(self, value, dialect):
+        if value is not None:
+            value = json.dumps(value)
+        return value
+
+    def process_result_value(self, value, dialect):
+        if value is not None:
+            value = json.loads(value)
+        return value
+
 
 class UUID(types.TypeDecorator):
     """UUID column type for SQLAlchemy based on SQLAlchemy doc examples for GUID
