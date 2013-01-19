@@ -25,13 +25,14 @@ console_scripts = ['apiary=apiary.tools.cli:main',
 
 packages = ['apiary',
             'apiary.api',
-            'apiary.models',
+            'apiary.mappers',
             'apiary.server',
             'apiary.tools']
 
 install_requires = ['clihelper',
                     'lxml',
                     'msgpack',
+                    'python-ldap',
                     'requests',
                     'sqlalchemy>=0.8',
                     'tornado']
