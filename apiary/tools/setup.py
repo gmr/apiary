@@ -8,12 +8,12 @@ from sqlalchemy import orm
 import os
 import yaml
 
-from apiary.models import base
-from apiary.models import architecture
-from apiary.models import breed
-from apiary.models import distribution
-from apiary.models import profile
-from apiary.models import system
+from apiary.mappers import Base
+from apiary.mappers import architecture
+from apiary.mappers import breed
+from apiary.mappers import distribution
+from apiary.mappers import profile
+from apiary.mappers import system
 
 
 DEFAULTS_PATH = 'templates/defaults.yaml'
@@ -37,7 +37,7 @@ def main(database_name):
 
     Session = orm.sessionmaker(bind=engine)
     session = Session()
-    base.Base.metadata.create_all(engine)
+    Base.metadata.create_all(engine)
 
     for arch in defaults.get('architectures'):
         LOGGER.info('Adding %s to available distribution architectures', arch)
