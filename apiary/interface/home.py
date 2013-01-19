@@ -1,12 +1,13 @@
 """
-File Description
+Apiary dashboard
 
 """
 
-from tornado import web
+from apiary import web
 
 
-class Home(web.RequestHandler):
+class Home(web.InterfaceRequestHandler):
 
+    @web.authenticated
     def get(self, *args, **kwargs):
-        self.render('interface/base.html')
+        self.render('interface/pages/home.html')
