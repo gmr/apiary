@@ -14,6 +14,7 @@ from apiary.mappers import breed
 from apiary.mappers import distribution
 from apiary.mappers import profile
 from apiary.mappers import system
+from apiary.mappers import nic
 
 
 DEFAULTS_PATH = 'templates/defaults.yaml'
@@ -47,14 +48,22 @@ def main(database_name):
         LOGGER.info('Adding %s to available distribution breeds', value)
         session.add(breed.Breed(value))
 
-    d = distribution.Distribution(name='CentOS', version='6.3', breed='redhat',
-                                  architecture='x86_64')
+    d = distribution.Distribution(name='CentOS',
+                                  version='6.3',
+                                  breed='redhat',
+                                  architecture='x86_64',
+                                  kernel='images/pxeboot/vmlinuz',
+                                  initrd='images/pxeboot/initrd.img',
+                                  kernel_options='ksdevice=bootif '
+                                                 'printk.time=1')
     session.add(d)
-
-    p = profile.Profile(name='CentOS 6.3 x86-64', distribution=d)
-
-
     session.commit()
+
+    p = profile.Profile(name='CentOS 6.3 x86-64', distribution=d.id)
+    session.add(p)
+    session.commit()
+
+
     LOGGER.info('Database created and defaults populated')
 
     with open('templates/apiary.yaml') as handle:
@@ -67,4 +76,4 @@ def main(database_name):
 
 
 if __name__ == '__main__':
-    main('/etc/apiary/apiary.sqlite3')
+    main(sys.argv[1] or '/etc/apiary/apiary.sqlite3')
