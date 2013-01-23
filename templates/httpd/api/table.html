@@ -30,9 +30,14 @@
   <div class="row">
     <div class="span12">
       <table class="table table-striped table-hover">
+        {% if hasattr(values['values'][0], '__columns__') %}
+        {% set columns = values['values'][0].__columns__ %}
+        {% else %}
+        {% set columns = values['values'][0].__table__.columns.keys() %}
+        {% end %}
         <thead>
           <tr>
-            {% for key in  values['values'][0].__table__.columns.keys() %}
+            {% for key in columns %}
             <th>{{key}}</th>
             {% end %}
           </tr>
@@ -40,7 +45,7 @@
         <tbody>
         {% for row in values['values'] %}
         <tr>
-          {% for offset, key in enumerate(row.__table__.columns.keys()) %}
+          {% for offset, key in enumerate(columns) %}
           <td>{% if offset == 0 %}<a href="/api/{{str(row.__class__.__name__).lower()}}/{{getattr(row, key)}}">{% end %}{{getattr(row, key)}}{% if offset == 0 %}</a>{% end %}</td>
           {% end %}
         </tr>
