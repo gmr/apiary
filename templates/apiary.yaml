@@ -34,6 +34,7 @@ Application:
     cookie_name: session
     duration: 3600
 
+  repository_path: /Users/gmr/Dropbox/Source/apiary/repository
   static_path: /Users/gmr/Dropbox/Source/apiary/static
   template_path: /Users/gmr/Dropbox/Source/apiary/templates/httpd
 
