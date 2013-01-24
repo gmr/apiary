@@ -316,9 +316,9 @@ class AuthRequestHandler(BaseRequestHandler):
             return
         if self.session.remote_ip != self.request.remote_ip:
             LOGGER.warning("Session %s IP address has changed from %s to %s",
-                           self.session.id, self.session.ip_address,
+                           self.session.id, self.session.remote_ip,
                            self.request.remote_ip)
-            self.session.ip_address = self.request.remote_ip
+            self.session.remote_ip = self.request.remote_ip
 
         if self.session.last_request_uri != self.request.uri:
             self.session.last_request_uri = self.request.uri
@@ -344,11 +344,13 @@ class APIRequestHandler(AuthRequestHandler):
 
     CONTENT_TYPE = 'Content-Type'
     HTML = 'html'
+    JSON = 'json'
     JSONP = 'jsonp'
     MSGPACK = 'msgpack'
     XML = 'xml'
 
-    MIME_TYPES = {JSONP: 'application/javascript',
+    MIME_TYPES = {JSON: 'application/json',
+                  JSONP: 'application/javascript',
                   HTML: 'text/html',
                   MSGPACK: 'application/x-msgpack',
                   XML: 'text/xml'}
@@ -485,6 +487,9 @@ class APIRequestHandler(AuthRequestHandler):
         :rtype: dict
 
         """
+        if isinstance(value_in, list):
+            return self.normalize_mapping_list(value_in)
+
         value_out = dict()
         for key in value_in.__table__.columns.keys():
             value = getattr(value_in, key)
@@ -576,7 +581,8 @@ class APIRequestHandler(AuthRequestHandler):
             return self.finish(self.generate_xml(value))
 
         # JSON
-        self.finish(self.normalize(value))
+        self.set_header(self.CONTENT_TYPE, self.MIME_TYPES[self.JSON])
+        self.finish(json.dumps(self.normalize(value), ensure_ascii=False))
 
     def unauthorized_request(self):
         """Set the appropriate headers and close out the request which will keep
@@ -601,11 +607,7 @@ class APIRequestHandler(AuthRequestHandler):
         offset = self.get_argument('offset', None)
         filter = self.get_argument('filter', None)
         values = self.query(mapping, limit, offset, filter)
-        self.restful_write({"rows": len(values),
-                            "limit": limit,
-                            "offset": int(offset) if offset else None,
-                            "filter": filter,
-                            "values": values})
+        self.restful_write(values)
 
     def write_mapping(self, mapping):
         """Write out a single mapping object
