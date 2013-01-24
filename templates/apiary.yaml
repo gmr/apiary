@@ -44,31 +44,44 @@ Daemon:
   pidfile: /var/run/apiary/apiary.pid
 
 Logging:
-  version: 1
-  formatters:
-    verbose:
-      format: '%(levelname) -10s %(asctime)s %(process)-6d %(processName) -15s %(name) -10s %(funcName) -20s: %(message)s'
-      datefmt: '%Y-%m-%d %H:%M:%S'
-    syslog:
-      format: " %(levelname)s <PID %(process)d:%(processName)s> %(name)s.%(funcName)s(): %(message)s"
+  disable_existing_loggers: true
   filters: []
+  formatters:
+    syslog:
+      format: ' %(levelname)s <PID %(process)d:%(processName)s> %(name)s.%(funcName)s(): %(message)s'
+    verbose:
+      datefmt: '%Y-%m-%d %H:%M:%S'
+      format: '%(levelname) -10s %(asctime)s %(process)-6d %(processName) -15s %(name) -25s %(funcName) -25s: %(message)s'
   handlers:
     console:
       class: logging.StreamHandler
-      formatter: verbose
       debug_only: true
+      formatter: verbose
     syslog:
+      address: /var/run/syslog
       class: logging.handlers.SysLogHandler
       facility: local6
-      address: /var/run/syslog
       formatter: syslog
+  incremental: false
   loggers:
     apiary:
+      handlers:
+        - console
+        - syslog
       level: DEBUG
       propagate: true
-      handlers: [console, syslog]
+    tornado:
+      handlers:
+        - console
+      level: DEBUG
+      propagate: true
     urllib3:
+      handlers:
+        - console
+        - syslog
       level: ERROR
       propagate: true
-  disable_existing_loggers: false
-  incremental: false
+  root:
+    level: ERROR
+    propagate: true
+  version: 1
