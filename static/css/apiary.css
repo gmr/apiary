@@ -1151,6 +1151,10 @@ h1{width:100%;padding:0;margin-bottom:20px;font-size:21px;line-height:40px;color
 .btn-toolbar{margin:0 0 10px 0;}
 .pagination{margin:5px 0;}
 .table{margin-bottom:10px;}
+.table thead tr th{text-align:center;}
+.table-sort-asc{background-image:url("/static/img/icons/table-sort-up.png");background-repeat:no-repeat;background-position:center left;color:#049cdb;}
+.table-sort-desc{background-image:url("/static/img/icons/table-sort-down.png");background-repeat:no-repeat;background-position:center left;color:#049cdb;}
+.clickable{display:block;cursor:pointer;}
 .pull-right{float:right;}
 .pull-left{float:left;}
 .hide{display:none;}
