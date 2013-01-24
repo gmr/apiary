@@ -6,12 +6,15 @@
 {% end %}
 
 {% block page_content %}
+  {% set error = None %}
+  {% set info = None %}
   {% if 'login_error' in globals() and login_error %}
     {% set error = _('Could not validate your credentials.') %}
   {% elif 'connection_error' in globals() and connection_error %}
     {% set error = _('Could not connect to LDAP server.') %}
-  {% else %}
-    {% set error = None %}
+  {% end %}
+  {% if 'logged_out' in globals() and logged_out %}
+    {% set info = _('You have been logged out.') %}
   {% end %}
   <div class="row-fluid align-center">
     <div class="login-box">
@@ -22,18 +25,23 @@
           <i class="icon-warning-sign icon-error"></i> <strong>{{_('Error')}}</strong>: {{error}}
         </div>
         {% else %}
+          {% if info %}
+          <div id="info-alert" class="alert alert-info">
+            <i class="icon-circle-info icon icon-info"></i> {{info}}
+          </div>
+          {% end %}
           <p>{{_("To login, enter your LDAP authentication credentials:")}}</p>
         {% end %}
         <div class="control-group">
           <label class="control-label" for="inputUsername">Username</label>
           <div class="controls">
-            <input type="text" id="inputUsername" placeholder="Username" name="username"{% if 'username' in globals() %} value="{{username}}"{% end %}>
+            <input type="text" id="inputUsername" placeholder="Username" name="username"{% if 'username' in globals() %} value="{{username}}"{% else %} autofocus{% end %}>
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="inputPassword">Password</label>
           <div class="controls">
-            <input type="password" id="inputPassword" placeholder="Password" name="password">
+            <input type="password" id="inputPassword" placeholder="Password" name="password"{% if 'username' in globals() %} autofocus{% end %}>
           </div>
         </div>
         <div class="control-group">
