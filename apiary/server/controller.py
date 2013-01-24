@@ -42,6 +42,24 @@ class ApiaryController(clihelper.Controller):
         if self.is_running:
             self._shutdown()
 
+    def log_request(self, handler):
+        """Writes a completed HTTP request to the logs.
+
+        By default writes to the python root logger.  To change
+        this behavior either subclass Application and override this method,
+        or pass a function in the application settings dictionary as
+        'log_function'.
+        """
+        if handler.get_status() < 400:
+            log_method = LOGGER.info
+        elif handler.get_status() < 500:
+            log_method = LOGGER.warning
+        else:
+            log_method = LOGGER.error
+        request_time = 1000.0 * handler.request.request_time()
+        log_method("%d %s %.2fms", handler.get_status(),
+                   handler._request_summary(), request_time)
+
     def _application_settings(self):
         """Return a dictionary of settings that are valid for a
         tornado.web.Application and a dictionary of configuration values for
@@ -61,7 +79,8 @@ class ApiaryController(clihelper.Controller):
                 del settings[key]
 
         # Always disable xsrf_cookies by default
-        config['xsrf_cookies'] = False
+        settings['xsrf_cookies'] = False
+        settings['log_function'] = self.log_request
 
         return settings, config
 
@@ -148,6 +167,7 @@ class ApiaryController(clihelper.Controller):
 
         LOGGER.info('Apiary %s HTTP service started on port %s',
                     apiary.__version__, self._httpd_config['port'])
+
 
 def main():
     clihelper.setup('apiaryd', apiary.__doc__.strip(), apiary.__version__)
