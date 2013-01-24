@@ -18,7 +18,19 @@ var Router = Backbone.Router.extend({
     }
 });
 
+function bind_popovers()
+{
+    $("[rel='popover']").popover();
+}
+
+function bind_tooltips()
+{
+    $("[rel='tooltip']").tooltip();
+}
+
 $(function() {
     new Router();
     Backbone.history.start();
+    bind_tooltips();
+    bind_popovers();
 });
