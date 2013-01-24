@@ -29,10 +29,10 @@
         <ul class="nav">
           <li class="{% if request.path == '/' %}active{% end %}"><a href="/">{{_("Dashboard")}}</a></li>
           <li class="{% if request.path == '/systems' %}active{% end %}"><a href="/systems">{{_("Systems")}}</a></li>
-          <li class="dropdown">
+          <li class="dropdown{% if request.path[0:9] == '/settings' %} active{% end %}">
             <a href="/settings" class="dropdown-toggle" data-toggle="dropdown" id="systems_dropdown" role="button" data-toggle="dropdown" data-target="#">{{_("Settings")}} <b class="caret"></b></a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="systems_dropdown">
-              <li><a href="/settings/distributions"><i class="icon-cog icon"></i> {{_("Distributions")}}</a></li>
+              <li class="{% if request.path == '/settings/distributions' %}active{% end %}"><a href="/settings/distributions"><i class="icon-cog icon"></i> {{_("Distributions")}}</a></li>
             </ul>
           </li>
         </ul>
