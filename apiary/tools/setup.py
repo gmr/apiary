@@ -13,6 +13,7 @@ from apiary.mappers import architecture
 from apiary.mappers import breed
 from apiary.mappers import distribution
 from apiary.mappers import profile
+from apiary.mappers import session
 from apiary.mappers import system
 from apiary.mappers import nic
 
@@ -48,7 +49,7 @@ def main(database_name):
         LOGGER.info('Adding %s to available distribution breeds', value)
         session.add(breed.Breed(value))
 
-    d = distribution.Distribution(name='CentOS',
+    d = distribution.Distribution(name='CentOS-6.3-x86_64',
                                   version='6.3',
                                   breed='redhat',
                                   architecture='x86_64',
@@ -59,8 +60,13 @@ def main(database_name):
     session.add(d)
     session.commit()
 
-    p = profile.Profile(name='CentOS 6.3 x86-64', distribution=d.id)
+    p = profile.Profile(name='CentOS 6.3 x86-64', distribution=d.name)
     session.add(p)
+    p2 = profile.Profile(name='CentOS 6.3 x86-64 Seamicro',
+                         distribution=d.name,
+                         parent = p.name,
+                         kernel_options="nohardwareclock=true")
+    session.add(p2)
     session.commit()
 
 
