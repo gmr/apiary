@@ -16,19 +16,27 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="/preferences"><i class="icon-cog icon"></i> Preferences</a></li>
+              <li><a href="/preferences"><i class="icon-cog icon"></i> {{_("Preferences")}}</a></li>
             </ul>
           </li>
           <li class="divider-vertical"></li>
-          <li><a href="/logout"><i class="icon-road"></i> Logout</a></li>
+          <li><a href="/logout"><i class="icon-lock icon-yellow"></i> {{_("Logout")}}</a></li>
           {% else %}
-          <li><a href="/login"><i class="icon-user icon-yellow"></i> Login</a></li>
+          <li><a href="/login"><i class="icon-user icon-yellow"></i> {{_("Login")}}</a></li>
           {% end %}
         </ul>
+        {% if current_user %}
         <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Systems</a></li>
+          <li class="{% if request.path == '/' %}active{% end %}"><a href="/">{{_("Dashboard")}}</a></li>
+          <li class="{% if request.path == '/systems' %}active{% end %}"><a href="/systems">{{_("Systems")}}</a></li>
+          <li class="dropdown">
+            <a href="/settings" class="dropdown-toggle" data-toggle="dropdown" id="systems_dropdown" role="button" data-toggle="dropdown" data-target="#">{{_("Settings")}} <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="systems_dropdown">
+              <li><a href="/settings/distributions"><i class="icon-cog icon"></i> {{_("Distributions")}}</a></li>
+            </ul>
+          </li>
         </ul>
+        {% end %}
       </div>
     </div>
   </div>
