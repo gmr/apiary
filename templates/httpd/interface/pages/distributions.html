@@ -12,16 +12,16 @@
     <div>
       <div class="btn-toolbar pull-left">
         <div class="btn-group">
-          <button class="btn" rel="tooltip" title="{{_('New Distribution')}}"><i class="icon icon-circle-plus"></i></button>
+          <button class="btn" rel="tooltip" title="{{_('New Distribution')}}"><i class="icon icon-circle-plus icon-green"></i></button>
         </div>
         <div class="btn-group">
-          <button class="btn disabled" rel="tooltip" title="{{_('Delete')}}"><i class="icon icon-remove"></i></button>
+          <button class="btn disabled" id="btn-delete" rel="tooltip" title="{{_('Delete')}}"><i class="icon icon-remove icon-error"></i></button>
         </div>
         <div class="btn-group">
           <button class="btn" rel="tooltip" title="{{_('Search')}}"><i class="icon icon-search"></i></button>
           <button class="btn" rel="tooltip" title="{{_('Filter')}}"><i class="icon icon-filter"></i></button>
           <button class="btn" rel="tooltip" title="{{_('Print')}}"><i class="icon icon-print"></i></button>
-          <button class="btn" rel="tooltip" title="{{_('Refresh')}}"><i class="icon icon-refresh"></i></button>
+          <button class="btn" rel="tooltip" title="{{_('Refresh')}}"><i class="icon icon-refresh icon-green"></i></button>
         </div>
       </div>
       <div class="pagination pagination-right hidden">
@@ -37,7 +37,7 @@
     <table id="distribution-table" class="table table-striped table-hover table-bordered tablesorter">
       <thead>
         <tr>
-          <th class="clickable" rel="tooltip" title="{{_('Select / Deselect All')}}"><i class="icon icon-unchecked"></i></th>
+          <th class="clickable" rel="tooltip" title="{{_('Select / Deselect All')}}" data-placement="bottom"><i class="icon icon-unchecked"></i></th>
           <th>{{_("Name")}}</th>
           <th>{{_("Breed")}}</th>
           <th>{{_("Architecture")}}</th>

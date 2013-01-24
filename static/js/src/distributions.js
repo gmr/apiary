@@ -4,6 +4,7 @@ var DistributionCollection = Backbone.Collection.extend({url: '/api/distribution
 
 var DistributionsTableView = {
 
+    delete_button: $('#btn-delete'),
     table: $('#distribution-table'),
 
     add_tablesorter: function() {
@@ -22,9 +23,11 @@ var DistributionsTableView = {
             {
                 checked.addClass('icon-unchecked').removeClass('icon-check');
                 DistributionsTableView.table.find('tbody tr td:first i.icon-check').addClass('icon-unchecked').removeClass('icon-check');
+                DistributionsTableView.delete_button.addClass('disabled');
             } else {
                 header.find('i').addClass('icon-check').removeClass('icon-unchecked');
                 DistributionsTableView.table.find('tbody tr td:first i.icon-unchecked').addClass('icon-check').removeClass('icon-unchecked');
+                DistributionsTableView.delete_button.removeClass('disabled');
             }
         });
 
@@ -36,8 +39,13 @@ var DistributionsTableView = {
             if ( checked.length > 0 )
             {
                 checked.addClass('icon-unchecked').removeClass('icon-check');
+                if ( columns.find('i.icon-check').length === 0 )
+                {
+                    DistributionsTableView.delete_button.addClass('disabled');
+                }
             } else {
                 $(this).find('i').addClass('icon-check').removeClass('icon-unchecked');
+                DistributionsTableView.delete_button.removeClass('disabled');
             }
         });
     },
