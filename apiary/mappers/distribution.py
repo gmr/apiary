@@ -18,9 +18,7 @@ class Distribution(Base):
     """
     __tablename__ = 'distributions'
 
-    id = sqlalchemy.Column(types.UUID, primary_key=True,
-                           default=uuid.uuid4, nullable=False)
-    name = sqlalchemy.Column(sqlalchemy.TEXT, nullable=False)
+    name = sqlalchemy.Column(sqlalchemy.TEXT, primary_key=True, nullable=False)
     version = sqlalchemy.Column(sqlalchemy.TEXT, nullable=False)
     arch_fk = sqlalchemy.ForeignKey('%s.name' %
                                     architecture.Architecture.__tablename__)

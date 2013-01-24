@@ -17,9 +17,9 @@ class Profile(Base):
     __tablename__ = 'system_profiles'
 
     name = sqlalchemy.Column(sqlalchemy.TEXT, nullable=False, primary_key=True)
-    distro_fk = sqlalchemy.ForeignKey('%s.id' %
+    distro_fk = sqlalchemy.ForeignKey('%s.name' %
                                       distribution.Distribution.__tablename__)
-    distribution = sqlalchemy.Column(types.UUID, distro_fk, nullable=False)
+    distribution = sqlalchemy.Column(types.TEXT, distro_fk, nullable=False)
     parent = sqlalchemy.Column(sqlalchemy.TEXT,
                                sqlalchemy.ForeignKey('system_profiles.name'),
                                nullable=True)
