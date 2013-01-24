@@ -1,0 +1,23 @@
+{% extends "../base.html" %}
+{% block title %}{{status_code}} {{_("Error")}}{% end %}
+{% autoescape None %}
+{% block breadcrumb %}
+<li><a href="{{request.path}}" class="active">{{status_code}} {{_("Error")}}</a>
+{% end %}
+{% block page_content %}
+<div class="row-fluid">
+  <div class="span8 offset2">
+    <div class="hero-unit">
+      <h1>{{_(error_message)}}</h1>
+      <p>{{_("An unexpected error has occurred. This may be due to configuration or circumstances beyond the control of this application. We&rsquo;re terribly sorry for the inconvenience. If debug is enabled, you should get a backtrace below this.")}}</p>
+      {% if handler.application.settings.get('debug') %}
+      {% set unused = traceback.reverse() %}
+      <legend>Traceback</legend>
+      <pre>{% for offset, line in enumerate(traceback[1:4]) %}{{offset}}: {{line.strip().replace("\n", "\n ")}}
+  {% end %}</pre>
+      {% end %}
+      <p>{{_("For help, check the apiary issue tracker and mailing list")}}</p>
+    </div>
+  </div>
+</div>
+{% end %}
