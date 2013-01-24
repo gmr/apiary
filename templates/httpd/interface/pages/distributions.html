@@ -1,0 +1,58 @@
+{% extends "../base.html" %}
+{% block title %}{{_("Distributions")}}{% end %}
+
+{% block breadcrumb %}
+<li><a href="/settings">{{_("Settings")}}</a></li>
+<li><a href="/settings/distributions" class="active">{{_("Distributions")}}</a></li>
+{% end %}
+
+{% block page_content %}
+<div>
+  <div class="btn-toolbar pull-left">
+    <div class="btn-group">
+      <button class="btn"><i class="icon icon-circle-plus"></i></button>
+    </div>
+    <div class="btn-group">
+      <button class="btn"><i class="icon icon-search"></i></button>
+      <button class="btn"><i class="icon icon-filter"></i></button>
+      <button class="btn"><i class="icon icon-print"></i></button>
+      <button class="btn"><i class="icon icon-refresh"></i></button>
+    </div>
+  </div>
+  <div class="pagination pagination-right hidden">
+    <ul>
+      <!-- li class="disabled"><a href="#"><i class="icon icon-left-arrow"></i></a></li -->
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#"><i class="icon icon-right-arrow"></i></a></li>
+    </ul>
+  </div>
+</div>
+<table class="table table-striped table-hover table-bordered table-condensed">
+  <thead>
+    <tr>
+      <td class="align-center"><i class="icon icon-unchecked"></i></td>
+      <th class="align-center" style="width: 5em;">{{_("Name")}}</th>
+      <th>{{_("Breed")}}</th>
+      <th>{{_("Architecture")}}</th>
+      <th>{{_("Profiles")}}</th>
+      <th>{{_("Systems")}}</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<div>
+  <p class="pull-left" style="padding-left: 1em;"><strong></strong></p>
+  <div class="pagination hidden pagination-right">
+    <ul>
+      <!-- li class="disabled"><a href="#"><i class="icon icon-left-arrow"></i></a></li -->
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#"><i class="icon icon-right-arrow"></i></a></li>
+    </ul>
+  </div>
+</div>
+{% end %}

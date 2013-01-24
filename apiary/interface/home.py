@@ -6,7 +6,7 @@ Apiary dashboard
 from apiary import web
 
 
-class Home(web.InterfaceRequestHandler):
+class Home(web.AuthRequestHandler):
 
     @web.authenticated
     def get(self, *args, **kwargs):
