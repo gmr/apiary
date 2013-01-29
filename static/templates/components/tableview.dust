@@ -1,0 +1,66 @@
+{>base breadcrumbs=breadcrumbs/}
+{+content}
+<div class="row-fluid">
+  <div class="span8 offset2">
+    <div>
+      <div class="btn-toolbar pull-left">
+        <div class="btn-group">
+          <button class="btn" rel="tooltip" title="New Item"><i class="icon icon-circle-plus icon-green"></i></button>
+        </div>
+        <div class="btn-group">
+          <button class="btn disabled" id="btn-delete" rel="tooltip" title="Delete"><i class="icon icon-remove icon-error"></i></button>
+        </div>
+        <div class="btn-group">
+          <button class="btn" rel="tooltip" title="Search"><i class="icon icon-search"></i></button>
+          <button class="btn" rel="tooltip" title="Filter"><i class="icon icon-filter"></i></button>
+          <button class="btn" rel="tooltip" title="Print"><i class="icon icon-print"></i></button>
+          <button class="btn" rel="tooltip" title="Refresh"><i class="icon icon-refresh icon-green"></i></button>
+        </div>
+      </div>
+      <div class="pagination pagination-right hidden">
+        <ul>
+          <!-- li class="disabled"><a href="#"><i class="icon icon-left-arrow"></i></a></li -->
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#"><i class="icon icon-right-arrow"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <table id="tableview" class="table table-striped table-hover table-bordered tablesorter">
+      {?columns}
+      <thead>
+        <tr>
+          <th class="clickable" rel="tooltip" title="Select / Deselect All}}" data-placement="bottom"><i class="icon icon-unchecked"></i></th>
+          {#columns}
+          <th>{.label}</th>
+          {/columns}
+        </tr>
+      </thead>
+      {/columns}
+      <tbody>
+      {#data}
+      <tr>
+        <td class="align-center clickable"><i class="icon icon-unchecked"></i></td>
+        {#columns row=.}
+          <td>{@column_value obj=row /}</td>
+        {/columns}
+      </tr>
+      {/data}
+      </tbody>
+    </table>
+    <div>
+      <p class="pull-left" style="padding-left: 1em;"><strong></strong></p>
+      <div class="pagination hidden pagination-right">
+        <ul>
+          <!-- li class="disabled"><a href="#"><i class="icon icon-left-arrow"></i></a></li -->
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#"><i class="icon icon-right-arrow"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{/content}

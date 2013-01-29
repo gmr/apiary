@@ -25,10 +25,12 @@ class Login(web.AuthRequestHandler):
         LOGGER.critical('Could not connect to LDAP server')
         self.render('interface/pages/login.html', connection_error=True)
 
-    def get(self, *args, **kwargs):
-        if self.session and self.session.authenticated:
-            return self.redirect('/')
-        self.render('interface/pages/login.html')
+    def get(self):
+        """Render the login form"""
+        if self.current_user:
+            self.redirect("/#")
+        else:
+            self.render('interface/pages/login.html')
 
     def post(self, *args, **kwargs):
         username = self.get_argument('username', None)
@@ -50,7 +52,7 @@ class Login(web.AuthRequestHandler):
             LOGGER.warning('No group access for %s' % username)
             self._clear_session()
             return self.permission_denied()
-        self.redirect('/')
+        self.redirect("/#")
 
 
 class Logout(web.AuthRequestHandler):
@@ -60,4 +62,13 @@ class Logout(web.AuthRequestHandler):
     """
     def get(self, *args, **kwargs):
         self._clear_session()
-        self.render('interface/pages/login.html', logged_out=True)
+        self.redirect("/login")
+
+
+class Profile(web.AuthRequestHandler):
+
+    def get(self, *args, **kwargs):
+        if not self.current_user:
+            self.set_status(403)
+        else:
+            self.write(self.current_user)

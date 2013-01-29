@@ -1,36 +1,19 @@
-// Apiary JavaScript
+define([
+    'jquery',
+    'collections/distributions',
+    'views/distributions'
+], function($, DistributionCollection, DistributionsTableView) {
+    var initialize = function() {
+        //peopleCollection.add([
+        //  {name: 'Pepe', lastName: 'Iglesias'},
+        //  {name: 'Ronaldinho', lastName: 'Gaullo'}
+        //]);
+        peopleCollection.add(people_array);
+        people_view_model = new DistributionsTableView(DistributionCollection);
 
-// @codekit-prepend "src/distributions.js";
-
-var routes = {
-    "/settings/distributions": [{path: "",
-                                 name: "Distributions",
-                                 callback: DistributionsTableView.initialize}]
-};
-
-var Router = Backbone.Router.extend({
-
-    initialize: function() {
-        var self = this;
-        _.each(routes[document.location.pathname], function(route) {
-            self.route(route.path, route.name, route.callback);
-        });
+        ko.applyBindings(people_view_model);
     }
-});
-
-function bind_popovers()
-{
-    $("[rel='popover']").popover();
-}
-
-function bind_tooltips()
-{
-    $("[rel='tooltip']").tooltip();
-}
-
-$(function() {
-    new Router();
-    Backbone.history.start();
-    bind_tooltips();
-    bind_popovers();
+    return {
+        initialize: initialize
+    }
 });

@@ -1,0 +1,22 @@
+<div class="row-fluid">
+  <div class="container-fluid span8 offset2">
+    <table class="table" style="width: 600px; margin-left: 25px;">
+      <thead>
+        <th style="width: 225px;">Class</th>
+        <th style="text-align: center; width: 75px;">Black</th>
+        <th style="text-align: center; width: 75px;">White</th>
+        <th style="text-align: center; width: 75px;">Yellow</th>
+        <th style="text-align: center; width: 75px;">Error</th>
+        <th style="text-align: center; width: 75px;">Info</th>
+      </thead>
+      <tbody>
+      <tr><td>icon-4square</td><td style="text-align: center;"><i class="icon-4square"></i></td><td style="background-color: #aaa; text-align: center;"><i class="icon-4square icon-white"></i></td><td style="text-align: center;"><i class="icon-4square icon-yellow"></i></td><td style="background-color: #f2dede; text-align: center;"><i class="icon-4square icon-error"></i></td><td style="background-color: #d9edf7; text-align: center;"><i class="icon-4square icon-info"></i></td></tr>
+      <tr><td>icon-adjust</td><td style="text-align: center;"><i class="icon-adjust"></i></td><td style="background-color: #aaa; text-align: center;"><i class="icon-adjust icon-white"></i></td><td style="text-align: center;"><i class="icon-adjust icon-yellow"></i></td><td style="background-color: #f2dede; text-align: center;"><i class="icon-adjust icon-error"></i></td><td style="background-color: #d9edf7; text-align: center;"><i class="icon-adjust icon-info"></i></td></tr>
+      <tr><td>icon-adjust-alt</td><td style="text-align: center;"><i class="icon-adjust-alt"></i></td><td style="background-color: #aaa; text-align: center;"><i class="icon-adjust-alt icon-white"></i></td><td style="text-align: center;"><i class="icon-adjust-alt icon-yellow"></i></td><td style="background-color: #f2dede; text-align: center;"><i class="icon-adjust-alt icon-error"></i></td><td style="background-color: #d9edf7; text-align: center;"><i class="icon-adjust-alt icon-info"></i></td></tr>
+      <tr><td>icon-adress-book</td><td style="text-align: center;"><i class="icon-adress-book"></i></td><td style="background-color: #aaa; text-align: center;"><i class="icon-adress-book icon-white"></i></td><td style="text-align: center;"><i class="icon-adress-book icon-yellow"></i></td><td style="background-color: #f2dede; text-align: center;"><i class="icon-adress-book icon-error"></i></td><td style="background-color: #d9edf7; text-align: center;"><i class="icon-adress-book icon-info"></i></td></tr>
+      <tr><td>icon-airplane</td><td style="text-align: center;"><i class="icon-airplane"></i></td><td style="background-color: #aaa; text-align: center;"><i class="icon-airplane icon-white"></i></td><td style="text-align: center;"><i class="icon-airplane icon-yellow"></i></td><td style="background-color: #f2dede; text-align: center;"><i class="icon-airplane icon-error"></i></td><td style="background-color: #d9edf7; text-align: center;"><i class="icon-airplane icon-info"></i></td></tr>
+      <tr><td>icon-alarm</td><td style="text-align: center;"><i class="icon-alarm"></i></td><td style="background-color: #aaa; text-align: center;"><i class="icon-alarm icon-white"></i></td><td style="text-align: center;"><i class="icon-alarm icon-yellow"></i></td><td style="background-color: #f2dede; text-align: center;"><i class="icon-alarm icon-error"></i></td><td style="background-color: #d9edf7; text-align: center;"><i class="icon-alarm icon-info"></i></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

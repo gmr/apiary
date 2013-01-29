@@ -1,0 +1,6 @@
+<ul class="breadcrumb">
+  <li><a href="/"><i class="icon-home"></i></a>{?breadcrumbs} <span class="divider">/</span>{:else} Dashboard{/breadcrumbs}</li>
+  {?breadcrumbs}
+    {#breadcrumbs}<li><a href="{path}">{name}</a>{@sep} <span class="divider">/</span> {/sep}</li>{/breadcrumbs}
+  {/breadcrumbs}
+</ul>
