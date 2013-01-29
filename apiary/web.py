@@ -496,6 +496,10 @@ class APIRequestHandler(AuthRequestHandler):
             if isinstance(value, uuid.UUID):
                 value = str(value)
             value_out[key] = value
+
+        if hasattr(value_in, '__append__'):
+            for key in value_in.__append__:
+                value_out[key] = getattr(value_in, key)
         return value_out
 
     def parameter_value(self, key, kwargs):
