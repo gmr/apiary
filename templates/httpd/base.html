@@ -16,15 +16,31 @@
     <link rel="shortcut icon" href="{{static_url('img/icons/apiary.ico')}}">
   </head>
   <body>
-    <div class="{% block container %}container{% end %}">
-      {% block content %}{% end %}
-      <footer>
-        <small>
-          <a href="https://github.com/gmr/apiary">Apiary</a> v{% import apiary %}{{apiary.__version__}} &ndash; Copyright &copy; 2013 <a href="http://meetme.com">MeetMe, Inc.</a>
-          <span class="pull-right">Generated in {% import time %}{{'%0.2f' % (time.time() - request._start_time)}} seconds @ <time>{{datetime.datetime.now().isoformat(' ').split('.')[0]}}</time></span>
-        </small>
-      </footer>
+    <div id="page" class="container-fluid">
+      <div id="navbar" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="brand" href="#"><img src="/static/img/logo-small.png" alt="Apiary"></a>
+          </div>
+        </div>
+      </div>
+      {% block content %}
+      <div id="content">
+        <div class="row-fluid">
+          <div class="span4 offset4 align-center loading">
+            <img src="{{static_url('img/logo200px.png')}}">
+            <p class="lead">Loading&hellip;</p>
+          </div>
+        </div>
+      </div>
+      {% end %}
+      <div class="push"></div>
     </div>
+    <footer>
+      <small>
+        <a href="https://github.com/gmr/apiary">Apiary</a> v{% import apiary %}{{apiary.__version__}} &ndash; Copyright &copy; 2013 <a href="http://meetme.com">MeetMe, Inc.</a>
+      </small>
+    </footer>
     {% block footer_javascript %}{% end %}
   </body>
 </html>

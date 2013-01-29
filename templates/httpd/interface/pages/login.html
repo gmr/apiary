@@ -1,11 +1,6 @@
 {% extends "../base.html" %}
 {% block title %}Login{% end %}
-
-{% block breadcrumb %}
-<li><a href="/login" class="active">{{_("Login")}}</a>
-{% end %}
-
-{% block page_content %}
+{% block content %}
   {% set error = None %}
   {% set info = None %}
   {% if 'login_error' in globals() and login_error %}
@@ -16,6 +11,11 @@
   {% if 'logged_out' in globals() and logged_out %}
     {% set info = _('You have been logged out.') %}
   {% end %}
+<div id="content">
+  <ul class="breadcrumb">
+    <li><a href="/"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+    <li><a href="/login" class="active">{{_("Login")}}</a>
+  </ul>
   <div class="row-fluid align-center">
     <div class="login-box">
       <form class="form-horizontal well" method="post" action="/login">
@@ -51,5 +51,10 @@
         </div>
       </form>
     </div>
+  </div>
 </div>
+{% end %}
+
+{% block footer_javascript %}
+<script src="{{static_url('js/libs/bootstrap/bootstrap.js')}}"></script>
 {% end %}

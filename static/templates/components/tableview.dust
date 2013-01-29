@@ -43,7 +43,7 @@
       <tr>
         <td class="align-center clickable"><i class="icon icon-unchecked"></i></td>
         {#columns row=.}
-          <td>{@column_value obj=row /}</td>
+        <td {@if cond="{.center}"}class="align-center"{/if}>{@tableview_column_value obj=row /}</td>
         {/columns}
       </tr>
       {/data}

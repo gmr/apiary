@@ -1,3 +1,4 @@
+{>base breadcrumbs=breadcrumbs /}
 <div class="row-fluid">
   <div class="container-fluid span8 offset2">
     <table class="table" style="width: 600px; margin-left: 25px;">

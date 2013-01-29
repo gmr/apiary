@@ -1,7 +1,23 @@
-/**
- * Created with PyCharm.
- * User: gmr
- * Date: 1/28/13
- * Time: 7:49 PM
- * To change this template use File | Settings | File Templates.
- */
+define([
+    "jquery",
+    "backbone",
+    "apiary_tools"
+], function($, backbone, ApiaryTools) {
+
+    var NavigationView = Backbone.View.extend({
+
+        on_rendered: function(content) {
+            $("#navbar").html(content);
+        },
+
+        render:function() {
+            ApiaryTools.render_template("snippets/navigation", {user: document.router.user}, this.on_rendered);
+        },
+
+        tagName: "div"
+
+    });
+
+    return NavigationView;
+
+});

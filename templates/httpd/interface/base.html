@@ -1,13 +1,5 @@
 {% extends "../base.html" %}
 {% block container %}container-fluid{% end %}
-{% block content %}
-  {% include "snippets/top-nav.html" %}
-  {% block breadcrumbs %}
-    <ul class="breadcrumb">
-      <li><a href="/"><i class="icon-home"></i></a> <span class="divider">/</span></li>
-      {% block breadcrumb %}{% end %}
-    </ul>
-  {% end %}
-  {% block page_content %}{{_("Unextended Page Content")}}{% end %}
+{% block footer_javascript %}
+<script data-main="static/js/main" src="{{static_url('js/libs/require/require.js')}}"></script>
 {% end %}
-{% block footer_javascript %}{% include "snippets/footer_javascript.html" %}{% end %}

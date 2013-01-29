@@ -1,7 +1,7 @@
-/**
- * Created with PyCharm.
- * User: gmr
- * Date: 1/28/13
- * Time: 10:58 AM
- * To change this template use File | Settings | File Templates.
- */
+define([
+    'underscore',
+    'backbone'
+], function(_, Backbone) {
+    var Distribution = Backbone.Model.extend({url: '/api/distribution', idAttribute: "name"});
+    return Distribution;
+});
