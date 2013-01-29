@@ -1,84 +1,45 @@
-body {
-  padding-top: 60px;
-  padding-bottom: 40px;
+html, body {
+  height: 100%;
 }
 
-.navbar .brand ,
-.navbar .nav > li > a,
-.navbar .nav > li > a.active {
-  text-shadow: none !important;
+.navbar {
+  .brand {
+    text-shadow: none !important;
+    margin-left: 0;
+    padding: 8px 20px 0 0;
+  }
+  .nav {
+    li {
+      a, a.active {
+        text-shadow: none !important;
+      }
+    }
+  }
+}
+
+#content {
+  padding-top: 60px;
+}
+
+#page {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+/* Negative indent footer by it's height */
+  margin: 0 auto -30px;
+}
+
+push,
+footer {
+  height:  30px;
+  background-color: #fefefe;
+  padding: 2px 1em;
 }
 
 footer {
   border-top: 1px solid @hrBorder;
-  padding-top: .5em;
 }
 
-time {
-  color: @gray;
-}
-
-.bottom-rule {
-  border-bottom: 1px solid @hrBorder;
-  margin-bottom: 1em;
-}
-
-.navbar .brand {
-  margin-left: 0;
-  padding: 8px 20px 0 0;
-}
-
-.nav-list .nav-header {
-  margin-left: -20px;
-}
-
-.nav-list > .active > a,
-.nav-list > .active > a:hover {
-  color: @white;
-  background-color: @logoYellow;
-}
-
-.login-box {
-   width:  400px;
-   text-align:  left;
-   margin-left: auto;
-   margin-right: auto;
-}
-
-
-.login-box .control-label {
-  width: 100px;
-}
-
-.login-box .controls {
-  margin-left: 120px;
-}
-
-.align-center,
-.table th.align-center,
-.table td.align-center
-{
-  text-align: center;
-}
-
-.table ul.inline {
-  margin-bottom: 0;
-}
-
-dl.legend {
-  margin: 0 0 20px 0;
-  padding: 0;
-  width: 200px;
-}
-
-dl.legend dt {
-  margin: 0 0 10px 0;
-  width:  20px;
-}
-
-dl.legend dd {
-  margin: 0 0 10px 30px;
-}
 
 h1 {
   width: 100%;
@@ -91,20 +52,36 @@ h1 {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.btn-toolbar {
-  margin: 0 0 10px 0;
+.login-box {
+   width:  400px;
+   text-align:  left;
+   margin-left: auto;
+   margin-right: auto;
+  .control-label {
+    width: 100px;
+  }
+  .controls {
+    margin-left: 120px;
+  }
 }
 
-.pagination {
-  margin: 5px 0;
+.align-center {
+  text-align: center;
 }
 
 .table {
   margin-bottom: 10px;
-}
-
-.table thead tr th {
-  text-align:  center;
+  tbody {
+    td.align-center {
+      text-align: center;
+    }
+  }
+  ul.inline {
+    margin-bottom: 0;
+  }
+  thead > tr > th {
+    text-align:  center;
+  }
 }
 
 .table-sort-asc {
@@ -121,7 +98,56 @@ h1 {
   color:  @blue;
 }
 
+.btn-toolbar {
+  margin: 0 0 10px 0;
+}
+
+.pagination {
+  margin: 5px 0;
+}
+
 .clickable {
   display: block;
   cursor: pointer;
+}
+
+#table-legend {
+  padding: 4px 1em;
+  h1 {
+    margin: -3px 0 10px 0;
+  }
+  dl.legend {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    dt {
+      margin: 0 0 10px 0;
+      width:  20px;
+    }
+    dd {
+      margin: 0 0 10px 30px;
+      width: auto;
+    }
+  }
+}
+
+div.loading {
+  padding-top: 50px;
+  text-align:  center;
+  p {
+    margin: 2em 0 4em 0;
+    font-size: 20pt;
+    font-weight: normal;
+  }
+}
+
+time {
+  color: @gray;
+}
+
+
+
+.bottom-rule {
+  border-bottom: 1px solid @hrBorder;
+  margin-bottom: 1em;
 }
