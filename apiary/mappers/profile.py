@@ -5,7 +5,6 @@ Profile Model
 import sqlalchemy
 
 from apiary.mappers import Base
-from apiary.mappers import distribution
 from apiary import types
 
 
@@ -17,8 +16,7 @@ class Profile(Base):
     __tablename__ = 'system_profiles'
 
     name = sqlalchemy.Column(sqlalchemy.TEXT, nullable=False, primary_key=True)
-    distro_fk = sqlalchemy.ForeignKey('%s.name' %
-                                      distribution.Distribution.__tablename__)
+    distro_fk = sqlalchemy.ForeignKey('distributions.name')
     distribution = sqlalchemy.Column(types.TEXT, distro_fk, nullable=False)
     parent = sqlalchemy.Column(sqlalchemy.TEXT,
                                sqlalchemy.ForeignKey('system_profiles.name'),
