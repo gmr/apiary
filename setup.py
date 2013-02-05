@@ -31,7 +31,7 @@ packages = ['apiary',
 
 install_requires = ['clihelper',
                     'lxml',
-                    'msgpack',
+                    'msgpack-python',
                     'python-ldap',
                     'requests',
                     'sqlalchemy>=0.8',
