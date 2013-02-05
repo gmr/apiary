@@ -18,7 +18,7 @@
   </ul>
   <div class="row-fluid align-center">
     <div class="login-box">
-      <form class="form-horizontal well" method="post" action="/login">
+      <form class="form-horizontal" method="post" action="/login">
         <legend>{{_("Apiary Login")}}</legend>
         {% if error %}
         <div id="error-alert" class="alert alert-error">
@@ -46,7 +46,7 @@
         </div>
         <div class="control-group">
           <div class="controls">
-            <button type="submit" class="btn btn-primary">Authenticate</button>
+            <button type="submit" class="btn btn-success">Authenticate</button>
           </div>
         </div>
       </form>

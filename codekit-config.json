@@ -13,6 +13,28 @@
       "initialSize" : 199,
       "fileType" : 8192
     },
+    "\/static\/js\/src\/apiary.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/js\/src\/apiary.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/static\/js\/src\/apiary.min.js",
+      "fileType" : 64
+    },
+    "\/static\/js\/libs\/backbone\/backbone.min.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/js\/libs\/backbone\/backbone.min.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/static\/js\/libs\/backbone\/backbone.min.min.js",
+      "fileType" : 64
+    },
     "\/static\/less\/apiary-responsive.less" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -26,16 +48,18 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
-    "\/static\/js\/lib\/backbone.min.js" : {
-      "ignoreWasSetByUser" : 1,
+    "\/static\/less\/buttons.less" : {
+      "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/js\/lib\/backbone.min.js",
+      "inputAbbreviatedPath" : "\/static\/less\/buttons.less",
       "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/static\/js\/lib\/backbone.min.min.js",
-      "fileType" : 64
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/static\/css\/buttons.css",
+      "strictImports" : 0,
+      "fileType" : 1,
+      "debugStyle" : 0
     },
     "\/docs\/_build\/html\/_static\/down.png" : {
       "ignoreWasSetByUser" : 0,
@@ -48,14 +72,16 @@
       "initialSize" : 363,
       "fileType" : 8192
     },
-    "\/templates\/httpd\/interface\/snippets\/footer_javascript.html" : {
+    "\/static\/img\/icons\/table-sort-down.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/templates\/httpd\/interface\/snippets\/footer_javascript.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/static\/img\/icons\/table-sort-down.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/static\/img\/icons\/table-sort-down.png",
+      "initialSize" : 448,
+      "fileType" : 8192
     },
     "\/docs\/_build\/html\/_static\/sidebar.js" : {
       "ignoreWasSetByUser" : 1,
@@ -90,29 +116,16 @@
       "outputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/underscore.min.js",
       "fileType" : 64
     },
-    "\/static\/js\/apiary.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/js\/apiary.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/static\/js\/apiary.min.js",
-      "fileType" : 64
-    },
-    "\/static\/less\/glyphicons.less" : {
+    "\/static\/js\/site.min.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/less\/glyphicons.less",
+      "inputAbbreviatedPath" : "\/static\/js\/site.min.js",
       "outputStyle" : 1,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/static\/css\/glyphicons.css",
-      "strictImports" : 0,
-      "fileType" : 1,
-      "debugStyle" : 0
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/static\/js\/site.min.min.js",
+      "fileType" : 64
     },
     "\/docs\/_build\/html\/_static\/file.png" : {
       "ignoreWasSetByUser" : 0,
@@ -125,18 +138,16 @@
       "initialSize" : 392,
       "fileType" : 8192
     },
-    "\/static\/less\/overrides.less" : {
+    "\/static\/img\/icons\/table-sort-up.png" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/less\/overrides.less",
-      "outputStyle" : 1,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/static\/css\/overrides.css",
-      "strictImports" : 0,
-      "fileType" : 1,
-      "debugStyle" : 0
+      "inputAbbreviatedPath" : "\/static\/img\/icons\/table-sort-up.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/static\/img\/icons\/table-sort-up.png",
+      "initialSize" : 430,
+      "fileType" : 8192
     },
     "\/static\/css\/apiary-responsive.css" : {
       "ignoreWasSetByUser" : 0,
@@ -169,15 +180,15 @@
       "initialSize" : 101136,
       "fileType" : 8192
     },
-    "\/static\/img\/icons\/glyphicons.png" : {
+    "\/static\/img\/icons\/glyphicons-error.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/img\/icons\/glyphicons.png",
+      "inputAbbreviatedPath" : "\/static\/img\/icons\/glyphicons-error.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/static\/img\/icons\/glyphicons.png",
-      "initialSize" : 94443,
+      "outputAbbreviatedPath" : "\/static\/img\/icons\/glyphicons-error.png",
+      "initialSize" : 180633,
       "fileType" : 8192
     },
     "\/templates\/httpd\/interface\/pages\/login.html" : {
@@ -189,16 +200,18 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/static\/img\/icons\/glyphicons-error.png" : {
+    "\/static\/less\/glyphicons.less" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/img\/icons\/glyphicons-error.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/static\/img\/icons\/glyphicons-error.png",
-      "initialSize" : 180633,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/static\/less\/glyphicons.less",
+      "outputStyle" : 1,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/static\/css\/glyphicons.css",
+      "strictImports" : 0,
+      "fileType" : 1,
+      "debugStyle" : 0
     },
     "\/static\/less\/sprites.less" : {
       "ignoreWasSetByUser" : 0,
@@ -213,6 +226,17 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
+    "\/static\/img\/logo.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/img\/logo.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/static\/img\/logo.png",
+      "initialSize" : 11139,
+      "fileType" : 8192
+    },
     "\/docs\/_build\/html\/_static\/comment-bright.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -223,6 +247,39 @@
       "outputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/comment-bright.png",
       "initialSize" : 3500,
       "fileType" : 8192
+    },
+    "\/static\/less\/overrides.less" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/less\/overrides.less",
+      "outputStyle" : 1,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/static\/css\/overrides.css",
+      "strictImports" : 0,
+      "fileType" : 1,
+      "debugStyle" : 0
+    },
+    "\/static\/img\/icons\/glyphicons.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/img\/icons\/glyphicons.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/static\/img\/icons\/glyphicons.png",
+      "initialSize" : 94443,
+      "fileType" : 8192
+    },
+    "\/templates\/httpd\/api\/table.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/templates\/httpd\/api\/table.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/docs\/_build\/html\/_static\/doctools.js" : {
       "ignoreWasSetByUser" : 1,
@@ -246,23 +303,23 @@
       "initialSize" : 372,
       "fileType" : 8192
     },
-    "\/static\/img\/logo.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+    "\/static\/js\/libs\/jquery.tablesorter\/jquery.tablesorter.min.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/img\/logo.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/static\/img\/logo.png",
-      "initialSize" : 11139,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/static\/js\/libs\/jquery.tablesorter\/jquery.tablesorter.min.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/static\/js\/libs\/jquery.tablesorter\/jquery.tablesorter.min.min.js",
+      "fileType" : 64
     },
-    "\/templates\/httpd\/api\/table.html" : {
+    "\/static\/templates\/snippets\/navigation.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/templates\/httpd\/api\/table.html",
+      "inputAbbreviatedPath" : "\/static\/templates\/snippets\/navigation.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -284,6 +341,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/templates\/httpd\/interface\/pages\/error.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/templates\/httpd\/interface\/pages\/error.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/static\/img\/icons\/apple-touch-icon-57-precomposed.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -295,21 +361,43 @@
       "initialSize" : 3903,
       "fileType" : 8192
     },
-    "\/templates\/httpd\/interface\/pages\/error.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/templates\/httpd\/interface\/pages\/error.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/docs\/_build\/html\/_static\/basic.css" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/basic.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
+    "\/static\/js\/views\/distributions.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/js\/views\/distributions.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/static\/js\/views\/distributions.min.js",
+      "fileType" : 64
+    },
+    "\/docs\/_build\/html\/_static\/comment-close.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/comment-close.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/comment-close.png",
+      "initialSize" : 3578,
+      "fileType" : 8192
+    },
+    "\/docs\/_build\/html\/_static\/pygments.css" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/pygments.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
@@ -324,16 +412,14 @@
       "initialSize" : 59025,
       "fileType" : 8192
     },
-    "\/docs\/_build\/html\/_static\/comment-close.png" : {
+    "\/static\/templates\/snippets\/breadcrumbs.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/comment-close.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/comment-close.png",
-      "initialSize" : 3578,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/static\/templates\/snippets\/breadcrumbs.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/repository\/distributions\/CentOS_6.3_x86_64\/isolinux\/splash.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -345,26 +431,6 @@
       "outputAbbreviatedPath" : "\/repository\/distributions\/CentOS_6.3_x86_64\/isolinux\/splash.jpg",
       "initialSize" : 151230,
       "fileType" : 4096
-    },
-    "\/static\/js\/lib\/bootstrap.min.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/js\/lib\/bootstrap.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/static\/js\/lib\/bootstrap.min.min.js",
-      "fileType" : 64
-    },
-    "\/docs\/_build\/html\/_static\/pygments.css" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/pygments.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
     },
     "\/static\/less\/variables.less" : {
       "ignoreWasSetByUser" : 0,
@@ -390,6 +456,15 @@
       "outputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/searchtools.min.js",
       "fileType" : 64
     },
+    "\/static\/templates\/pages\/distributions.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/templates\/pages\/distributions.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/docs\/_build\/html\/_static\/jquery.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -410,6 +485,28 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/static\/js\/libs\/underscore\/underscore.min.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/js\/libs\/underscore\/underscore.min.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/static\/js\/libs\/underscore\/underscore.min.min.js",
+      "fileType" : 64
+    },
+    "\/static\/js\/collections\/distributions.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/js\/collections\/distributions.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/static\/js\/collections\/distributions.min.js",
+      "fileType" : 64
+    },
     "\/docs\/_build\/html\/searchindex.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -420,6 +517,24 @@
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/docs\/_build\/html\/searchindex.min.js",
       "fileType" : 64
+    },
+    "\/docs\/_build\/html\/_static\/default.css" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/default.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
+    "\/templates\/httpd\/interface\/pages\/home.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/templates\/httpd\/interface\/pages\/home.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/docs\/_build\/html\/_static\/comment.png" : {
       "ignoreWasSetByUser" : 0,
@@ -432,23 +547,14 @@
       "initialSize" : 3445,
       "fileType" : 8192
     },
-    "\/templates\/httpd\/interface\/pages\/home.html" : {
+    "\/templates\/httpd\/base.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/templates\/httpd\/interface\/pages\/home.html",
+      "inputAbbreviatedPath" : "\/templates\/httpd\/base.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/docs\/_build\/html\/_static\/default.css" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/default.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
     },
     "\/templates\/httpd\/interface\/base.html" : {
       "ignoreWasSetByUser" : 0,
@@ -456,15 +562,6 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/templates\/httpd\/interface\/base.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/templates\/httpd\/base.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/templates\/httpd\/base.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -476,6 +573,17 @@
       "inputAbbreviatedPath" : "\/docs\/_build\/html\/search.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
+    },
+    "\/static\/js\/libs\/jquery\/jquery.min.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/js\/libs\/jquery\/jquery.min.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/static\/js\/libs\/jquery\/jquery.min.min.js",
+      "fileType" : 64
     },
     "\/static\/img\/logo200px.png" : {
       "ignoreWasSetByUser" : 0,
@@ -517,15 +625,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/static\/js\/models\/distribution.min.js" : {
-      "ignoreWasSetByUser" : 0,
+    "\/static\/js\/src\/user.js" : {
+      "ignoreWasSetByUser" : 1,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/js\/models\/distribution.min.js",
+      "inputAbbreviatedPath" : "\/static\/js\/src\/user.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/static\/js\/models\/distribution.min.min.js",
+      "outputAbbreviatedPath" : "\/static\/js\/src\/user.min.js",
       "fileType" : 64
     },
     "\/static\/img\/icons\/apple-touch-icon-72-precomposed.png" : {
@@ -550,16 +658,29 @@
       "initialSize" : 218642,
       "fileType" : 8192
     },
-    "\/static\/js\/apiary.min.js" : {
+    "\/static\/js\/libs\/bootstrap\/bootstrap.min.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/js\/libs\/bootstrap\/bootstrap.min.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/static\/js\/libs\/bootstrap\/bootstrap.min.min.js",
+      "fileType" : 64
+    },
+    "\/static\/less\/breadcrumbs.less" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/js\/apiary.min.js",
+      "inputAbbreviatedPath" : "\/static\/less\/breadcrumbs.less",
       "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/static\/js\/apiary.min.min.js",
-      "fileType" : 64
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/static\/css\/breadcrumbs.css",
+      "strictImports" : 0,
+      "fileType" : 1,
+      "debugStyle" : 0
     },
     "\/static\/img\/icons\/apple-touch-icon-114-precomposed.png" : {
       "ignoreWasSetByUser" : 0,
@@ -573,8 +694,8 @@
       "fileType" : 8192
     },
     "\/static\/js\/models\/distribution.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/static\/js\/models\/distribution.js",
@@ -591,17 +712,6 @@
       "inputAbbreviatedPath" : "\/templates\/httpd\/interface\/pages\/system.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/static\/js\/lib\/jquery.min.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/js\/lib\/jquery.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/static\/js\/lib\/jquery.min.min.js",
-      "fileType" : 64
     },
     "\/static\/less\/apiary.less" : {
       "ignoreWasSetByUser" : 0,
@@ -627,17 +737,6 @@
       "initialSize" : 147606,
       "fileType" : 8192
     },
-    "\/static\/js\/lib\/underscore.min.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/js\/lib\/underscore.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/static\/js\/lib\/underscore.min.min.js",
-      "fileType" : 64
-    },
     "\/templates\/httpd\/api\/item.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -658,12 +757,12 @@
       "initialSize" : 201558,
       "fileType" : 8192
     },
-    "\/templates\/httpd\/interface\/snippets\/top-nav.html" : {
+    "\/static\/templates\/pages\/dashboard.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/templates\/httpd\/interface\/snippets\/top-nav.html",
+      "inputAbbreviatedPath" : "\/static\/templates\/pages\/dashboard.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -678,17 +777,6 @@
       "outputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/websupport.min.js",
       "fileType" : 64
     },
-    "\/static\/js\/lib\/jquery.tablesorter.min.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/static\/js\/lib\/jquery.tablesorter.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/static\/js\/lib\/jquery.tablesorter.min.min.js",
-      "fileType" : 64
-    },
     "\/docs\/_build\/html\/_static\/plus.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -699,6 +787,28 @@
       "outputAbbreviatedPath" : "\/docs\/_build\/html\/_static\/plus.png",
       "initialSize" : 199,
       "fileType" : 8192
+    },
+    "\/static\/js\/views\/navigation.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/js\/views\/navigation.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/static\/js\/views\/navigation.min.js",
+      "fileType" : 64
+    },
+    "\/static\/js\/libs\/transparency\/transparency.min.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/static\/js\/libs\/transparency\/transparency.min.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/static\/js\/libs\/transparency\/transparency.min.min.js",
+      "fileType" : 64
     },
     "\/static\/img\/icons\/apple-touch-icon-144-precomposed.png" : {
       "ignoreWasSetByUser" : 0,
@@ -711,14 +821,16 @@
       "initialSize" : 9620,
       "fileType" : 8192
     },
-    "\/templates\/httpd\/interface\/pages\/distributions.html" : {
+    "\/static\/js\/site.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/templates\/httpd\/interface\/pages\/distributions.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/static\/js\/site.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/static\/js\/site.min.js",
+      "fileType" : 64
     }
   },
   "manualImportLinks" : [
@@ -897,7 +1009,7 @@
     "slimRailsCompatible" : 0,
     "kitAutoOutputPathReplace2" : "",
     "lessDebugStyle" : 0,
-    "javascriptAutoOutputPathRelativePath" : "..\/",
+    "javascriptAutoOutputPathRelativePath" : "static\/js\/",
     "slimAutoOutputPathStyle" : 0
   },
   "projectAttributes" : {

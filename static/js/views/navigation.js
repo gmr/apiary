@@ -1,23 +1,10 @@
-define([
-    "jquery",
-    "backbone",
-    "apiary_tools"
-], function($, backbone, ApiaryTools) {
+var Views = Views || { };
 
-    var NavigationView = Backbone.View.extend({
-
-        on_rendered: function(content) {
-            $("#navbar").html(content);
-        },
-
-        render:function() {
-            ApiaryTools.render_template("snippets/navigation", {user: document.router.user}, this.on_rendered);
-        },
-
-        tagName: "div"
-
+Views.NavigationView = Backbone.View.extend({
+      on_template: function (context, html) {
+        $("#navbar").render(html, {user: document.router.user});
+      },
+      render: function () {
+        Apiary.load_template("snippets/navigation", this);
+      }
     });
-
-    return NavigationView;
-
-});

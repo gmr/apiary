@@ -1,5 +1,3 @@
-{>base breadcrumbs=breadcrumbs/}
-{+content}
 <div class="row-fluid">
   <div class="span8 offset2">
     <div>
@@ -27,26 +25,26 @@
         </ul>
       </div>
     </div>
-    <table id="tableview" class="table table-striped table-hover table-bordered tablesorter">
-      {?columns}
+    <table id="distributions" class="table table-striped table-hover table-bordered tablesorter">
       <thead>
-        <tr>
-          <th class="clickable" rel="tooltip" title="Select / Deselect All}}" data-placement="bottom"><i class="icon icon-unchecked"></i></th>
-          {#columns}
-          <th>{.label}</th>
-          {/columns}
-        </tr>
-      </thead>
-      {/columns}
-      <tbody>
-      {#data}
       <tr>
-        <td class="align-center clickable"><i class="icon icon-unchecked"></i></td>
-        {#columns row=.}
-        <td {@if cond="{.center}"}class="align-center"{/if}>{@tableview_column_value obj=row /}</td>
-        {/columns}
+        <th class="align-center clickable" rel="tooltip" title="Select / Deselect All" data-placement="bottom"><i class="icon icon-unchecked"></i></th>
+        <th class="align-center">Name</th>
+        <th class="align-center">Version</th>
+        <th class="align-center">Breed</th>
+        <th class="align-center">Architecture</th>
+        <th class="align-center">Assigned Profiles</th>
       </tr>
-      {/data}
+      </thead>
+      <tbody>
+        <tr>
+          <td class="align-center clickable"><i class="icon icon-unchecked"></i></td>
+          <td><a data-bind="distribution"></a></td>
+          <td class="align-center" data-bind="version"></td>
+          <td class="align-center" data-bind="breed"></td>
+          <td class="align-center" data-bind="architecture"></td>
+          <td class="align-center" data-bind="profile_count"></td>
+        </tr>
       </tbody>
     </table>
     <div>
@@ -63,4 +61,3 @@
     </div>
   </div>
 </div>
-{/content}
