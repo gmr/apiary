@@ -2,32 +2,35 @@ Transparency.matcher = function(element, key) {
   return element.getAttribute('data-bind') === key;
 };
 
-var Router = Backbone.Router.extend({routes: {"": "render_dashboard",
-                                     "settings/distributions": "render_settings_distributions",
-                                     "settings/distribution/:id": "render_settings_distribution"},
-                                     render_dashboard: function()
-                                     {
+var Router = Backbone.Router.extend({
+  initialize: function()
+  {
+    this.user.initialize();
+    if (!this.navigation_view)
+    {
+      this.navigation_view = new Views.NavigationView();
+    }
+  },
+  render_dashboard: function()
+  {
+    //Apiary.render_template("pages/dashboard", {user: User}, render_page);
+    //Apiary.set_active_navbar_item("");
+  },
 
-                                       //Apiary.render_template("pages/dashboard", {user: User}, render_page);
-                                       //Apiary.set_active_navbar_item("");
-                                     },
-
-                                     render_settings_distributions: function ()
-                                     {
-                                       if (!this.distributions_view) {
-                                         this.distributions_view = new Views.DistributionsView();
-                                       }
-                                       this.distributions_view.render();
-                                     },
-                                     user: null,
-                                     initialize: function()
-                                     {
-                                       if (!this.navigation_view) {
-                                         this.navigation_view = new Views.NavigationView();
-                                       }
-                                     }
-                                    });
-
+  render_settings_distributions: function ()
+  {
+    if (!this.distributions_view)
+    {
+      this.distributions_view = new Views.DistributionsView();
+    } else {
+      this.distributions_view.render();
+    }
+  },
+  routes: {"": "render_dashboard",
+           "settings/distributions": "render_settings_distributions",
+           "settings/distribution/:id": "render_settings_distribution"},
+  user: User
+});
 
 var Apiary = {
 
@@ -41,22 +44,25 @@ var Apiary = {
   initialize: function() {
     document.router = new Router();
     Backbone.history.start();
-    this.user = User;
-    this.user.initialize();
   },
 
   load_template: function(path, context)
   {
-    if ( Apiary.templates.hasOwnProperty(path) )
+    if ( this.templates.hasOwnProperty(path) )
     {
-      callback(Apiary.templates[path]);
+      console.log('Calling with cached template value for ' + path);
+      console.log(this.templates[path]);
+      console.log(context);
+      context.on_template(this.templates[path]);
     } else {
+      var self = this;
       $.get("/static/templates/" + path + ".html?req=" + (new Date()).getTime(),
-            function(html)
-            {
-              Apiary.templates[path] = html;
-              context.on_template(context, html);
-            });
+        function(html)
+        {
+          console.log('Caching ' + path);
+          self.templates[path] = html;
+          context.on_template(context, html);
+        });
     }
   },
 
@@ -75,5 +81,5 @@ var Apiary = {
     $("title").html('Apiary &ndash; ' + title);
   },
 
-  templates: {}
+  templates: {},
 };
