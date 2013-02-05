@@ -3,6 +3,7 @@ Transparency.matcher = function(element, key) {
 };
 
 var Router = Backbone.Router.extend({
+
   initialize: function()
   {
     this.user.initialize();
@@ -11,6 +12,7 @@ var Router = Backbone.Router.extend({
       this.navigation_view = new Views.NavigationView();
     }
   },
+
   render_dashboard: function()
   {
     //Apiary.render_template("pages/dashboard", {user: User}, render_page);
@@ -26,9 +28,22 @@ var Router = Backbone.Router.extend({
       this.distributions_view.render();
     }
   },
+
+  render_systems: function ()
+  {
+    if (!this.systems_view)
+    {
+      this.systems_view = new Views.SystemsView();
+    } else {
+      this.systems_view.render();
+    }
+  },
+
   routes: {"": "render_dashboard",
            "settings/distributions": "render_settings_distributions",
-           "settings/distribution/:id": "render_settings_distribution"},
+           "settings/distribution/:id": "render_settings_distribution",
+           "systems": "render_systems"},
+
   user: User
 });
 
@@ -50,16 +65,12 @@ var Apiary = {
   {
     if ( this.templates.hasOwnProperty(path) )
     {
-      console.log('Calling with cached template value for ' + path);
-      console.log(this.templates[path]);
-      console.log(context);
       context.on_template(this.templates[path]);
     } else {
       var self = this;
       $.get("/static/templates/" + path + ".html?req=" + (new Date()).getTime(),
         function(html)
         {
-          console.log('Caching ' + path);
           self.templates[path] = html;
           context.on_template(context, html);
         });
@@ -81,5 +92,5 @@ var Apiary = {
     $("title").html('Apiary &ndash; ' + title);
   },
 
-  templates: {},
+  templates: {}
 };

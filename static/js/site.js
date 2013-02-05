@@ -7,14 +7,19 @@
 // @codekit-prepend "libs/bootstrap/bootstrap.min.js"
 
 
+// View Support Tools
 
 // Internal views, models and collections
 // @codekit-append "models/distribution.js"
+// @codekit-append "models/system.js"
 // @codekit-append "collections/distributions.js"
+// @codekit-append "collections/systems.js"
 // @codekit-append "views/distributions.js"
+// @codekit-append "views/systems.js"
 // @codekit-append "views/navigation.js"
 
 // @codekit-append "src/user.js"
+// @codekit-append "src/views.js"
 // @codekit-append "src/apiary.js"
 
 jQuery(document).ready(function($) {

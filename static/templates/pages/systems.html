@@ -1,0 +1,66 @@
+<div class="row-fluid">
+  <div class="span10">
+    <div class="toolbar"></div>
+    <div class="pagination pagination-right"></div>
+    <table id="systems" class="table table-striped table-hover table-bordered table-condensed">
+      <thead>
+      <tr>
+        <th class="align-center"><i class="icon icon-unchecked"></i></th>
+        <th style="width: 20em;">UUID</th>
+        <th class="align-center" style="width: 5em;">Status</th>
+        <th>Serial #</th>
+        <th>Profile</th>
+        <th>Hostname</th>
+        <th class="align-center">Tags</th>
+        <th class="align-center">Tools</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="align-center"><i class="icon icon-unchecked"></i></td>
+        <td><a data-bind="system"></a></td>
+        <td class="align-center" data-bind="icons"></td>
+        <td data-bind="serial_number"></td>
+        <td><a data-bind="linked_profile"></a></td>
+        <td data-bind="hostname"></td>
+        <td class="align-center"></td>
+        <td class="align-center">
+          <ul class="inline">
+            <li><a href="#"><i class="icon icon-dashboard"></i></a></li>
+            <li><a href="#"><i class="icon icon-history"></i></a></li>
+            <li><a href="#"><i class="icon icon-display"></i></a></li>
+            <li><a href="#"><i class="icon icon-restart"></i></a></li>
+            <li><a href="#"><i class="icon icon-power"></i></a></li>
+          </ul>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+    <div>
+      <p class="pull-left" style="padding-left: 1em;"><strong>Displaying 12 of 12 total systems</strong></p>
+      <div class="pagination pagination-right">
+      </div>
+    </div>
+  </div>
+  <div class="span2 well well-small" id="table-legend">
+    <button type="button" class="close" data-dismiss="table-legend">&times;</button>
+    <h1>Legend</h1>
+    <dl class="dl-horizontal legend">
+      <dt><i class="icon icon-green icon-thumbs-up"></i></dt>
+      <dd>Online and operational</dd>
+      <dt><i class="icon icon-yellow icon-hdd"></i></dt>
+      <dd>Online but waiting for assignment or provisioning</dd>
+      <dt><i class="icon icon-error icon-flag"></i></dt>
+      <dd>Will be provisioned on next reboot</dd>
+      <dt><i class="icon icon-info icon-cogwheel"></i></dt>
+      <dd>Currently being provisioned</dd>
+      <dt><i class="icon icon-error icon-fire"></i></dt>
+      <dd>Experiencing operational issues</dd>
+      <dt><i class="icon icon-moon"></i></dt>
+      <dd>Powered down</dd>
+      <dt><i class="icon icon-skull"></i></dt>
+      <dd>Dead or decommissioned</dd>
+    </dl>
+  </div>
+</div>
