@@ -15,6 +15,7 @@
 // @codekit-append "collections/distributions.js"
 // @codekit-append "collections/systems.js"
 // @codekit-append "views/distributions.js"
+// @codekit-append "views/system.js"
 // @codekit-append "views/systems.js"
 // @codekit-append "views/navigation.js"
 

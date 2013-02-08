@@ -1,4 +1,10 @@
 <div class="row-fluid">
+  <ul class="breadcrumb">
+    <li><a href="#"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+    <li class="active">Systems</li>
+  </ul>
+</div>
+<div class="row-fluid">
   <div class="span10">
     <div class="toolbar"></div>
     <div class="pagination pagination-right"></div>
@@ -16,25 +22,24 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td class="align-center"><i class="icon icon-unchecked"></i></td>
-        <td><a data-bind="system"></a></td>
-        <td class="align-center" data-bind="icons"></td>
-        <td data-bind="serial_number"></td>
-        <td><a data-bind="linked_profile"></a></td>
-        <td data-bind="hostname"></td>
-        <td class="align-center"></td>
-        <td class="align-center">
-          <ul class="inline">
-            <li><a href="#"><i class="icon icon-dashboard"></i></a></li>
-            <li><a href="#"><i class="icon icon-history"></i></a></li>
-            <li><a href="#"><i class="icon icon-display"></i></a></li>
-            <li><a href="#"><i class="icon icon-restart"></i></a></li>
-            <li><a href="#"><i class="icon icon-power"></i></a></li>
-          </ul>
-        </td>
-      </tr>
-
+        <tr>
+          <td class="align-center"><i class="icon icon-unchecked"></i></td>
+          <td><a data-bind="system"></a></td>
+          <td class="align-center" data-bind="icons"></td>
+          <td data-bind="serial_number"></td>
+          <td><a data-bind="linked_profile"></a></td>
+          <td data-bind="hostname"></td>
+          <td class="align-center"></td>
+          <td class="align-center">
+            <ul class="inline">
+              <li><a href="#"><i class="icon icon-dashboard"></i></a></li>
+              <li><a href="#"><i class="icon icon-history"></i></a></li>
+              <li><a href="#"><i class="icon icon-display"></i></a></li>
+              <li><a href="#"><i class="icon icon-restart"></i></a></li>
+              <li><a href="#"><i class="icon icon-power"></i></a></li>
+            </ul>
+          </td>
+        </tr>
       </tbody>
     </table>
     <div>

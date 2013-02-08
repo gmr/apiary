@@ -21,28 +21,39 @@ var Router = Backbone.Router.extend({
 
   render_settings_distributions: function ()
   {
-    if (!this.distributions_view)
-    {
-      this.distributions_view = new Views.DistributionsView();
-    } else {
-      this.distributions_view.render();
-    }
+      var self = this;
+      this.collection = new Collections.Distributions();
+      this.collection.fetch({success: function() {
+          self.view = new Views.DistributionsView(self.collection);
+          self.view.render();
+      }});
   },
 
   render_systems: function ()
   {
-    if (!this.systems_view)
-    {
-      this.systems_view = new Views.SystemsView();
-    } else {
-      this.systems_view.render();
-    }
+    var self = this;
+    this.collection = new Collections.Systems();
+    this.collection.fetch({success: function() {
+        self.view = new Views.SystemsView(self.collection);
+        self.view.render();
+    }});
+  },
+
+  render_system: function (id)
+  {
+    var self = this;
+    this.model = new Models.System({id: id});
+    this.model.fetch({success: function(){
+        self.view = new Views.SystemView(self.model);
+        self.view.render();
+    }});
   },
 
   routes: {"": "render_dashboard",
            "settings/distributions": "render_settings_distributions",
-           "settings/distribution/:id": "render_settings_distribution",
-           "systems": "render_systems"},
+           "settings/distribution/:name": "render_settings_distribution",
+           "systems": "render_systems",
+           "system/:id": "render_system"},
 
   user: User
 });
@@ -63,11 +74,11 @@ var Apiary = {
 
   load_template: function(path, context)
   {
-    if ( this.templates.hasOwnProperty(path) )
+    var self = this;
+    if ( self.templates.hasOwnProperty(path) )
     {
-      context.on_template(this.templates[path]);
+      context.on_template(context, self.templates[path]);
     } else {
-      var self = this;
       $.get("/static/templates/" + path + ".html?req=" + (new Date()).getTime(),
         function(html)
         {

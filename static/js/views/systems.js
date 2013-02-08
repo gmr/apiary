@@ -2,46 +2,43 @@ var Views = Views || { };
 
 Views.SystemsView =  Backbone.View.extend({
 
-  initialize: function () {
-    this.collection = new Collections.Systems();
-    var self = this;
-    this.collection.fetch({success: function () {
-      self.render();
-    }});
+  initialize: function (collection) {
+    this.collection = collection;
+    this.collection.bind('refresh', this.render);
   },
 
   on_template: function (self, html) {
     Apiary.set_content(html);
     self.table = $('#systems');
     var tbody = self.table.find('tbody');
-    var values = self.collection.toJSON();
-    tbody.render(values, {system: {
-                            href: function () {
-                              return "#system/" + this.id;
-                            },
-                            text: function () {
-                              return this.id;
-                            }
-                          },
-                          linked_profile: {
-                              href: function () {
-                                return "#settings/profile/" + this.profile;
-                              },
-                              text: function () {
-                                return this.profile;
-                              }
-                          },
-                          icons: {
-                            html: function() {
-                              icons = '';
-                              if ( this.provision === true )
-                              {
-                                icons = icons + '<i class="icon icon-flag icon-error"></i>';
-                              }
-                              return icons;
-                            }
-                          }
-                        });
+    tbody.render(self.collection.toJSON(),
+                 {system: {
+                   href: function () {
+                     return "#system/" + this.id;
+                   },
+                   text: function () {
+                     return this.id;
+                   }
+                 },
+                 linked_profile: {
+                   href: function () {
+                     return "#settings/profile/" + this.profile;
+                   },
+                   text: function () {
+                     return this.profile;
+                   }
+                 },
+                 icons: {
+                   html: function() {
+                     icons = '';
+                     if ( this.provision === true )
+                     {
+                       icons = icons + '<i class="icon icon-flag icon-error"></i>';
+                     }
+                     return icons;
+                   }
+                 }
+               });
     Apiary.set_title("Systems");
     ViewTools.add_pagination(this);
     //ViewTools.add_tablesorter(this.table);

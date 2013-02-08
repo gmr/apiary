@@ -2,12 +2,8 @@ var Views = Views || { };
 
 Views.DistributionsView =  Backbone.View.extend({
 
-  initialize: function () {
-    this.collection = new Collections.Distributions();
-    var self = this;
-    this.collection.fetch({success: function () {
-      self.render();
-    }});
+  initialize: function (collection) {
+    this.collection = collection;
   },
 
   on_template: function (self, html) {
