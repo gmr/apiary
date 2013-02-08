@@ -4,6 +4,7 @@ API System related Request Handlers
 """
 import logging
 
+from apiary.mappers import nic
 from apiary.mappers import system
 from apiary import web
 
