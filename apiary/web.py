@@ -12,8 +12,6 @@ import uuid
 import traceback
 from tornado import web
 
-from logging import config
-
 from apiary import authentication
 from apiary.mappers import session
 
