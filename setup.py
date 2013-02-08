@@ -30,6 +30,7 @@ packages = ['apiary',
             'apiary.tools']
 
 install_requires = ['clihelper',
+                    'ipaddr',
                     'lxml',
                     'msgpack-python',
                     'python-ldap',
