@@ -2,28 +2,22 @@
 Distribution Architecture Model
 
 """
-import sqlalchemy
+from sqlalchemy import Column
+from sqlalchemy import Text
 
 from apiary.mappers import Base
+from apiary.mappers import mixin
 
 
-class Architecture(Base):
+class Architecture(Base, mixin.MapperMixin):
     """Distribution Architecture model, used to specify the processor
     architecture (x86_64, i386, etc) for a distribution
 
     """
+    __primary_key__ = 'name'
     __tablename__ = 'distribution_architectures'
 
-    name = sqlalchemy.Column(sqlalchemy.TEXT, primary_key=True, nullable=False)
-
-    def __init__(self, name=None):
-        """Create a new instance of the Architecture class passing in the
-        architecture name.
-
-        :param str name: The name of the architecture ('x86_64', 'i386' etc)
-
-        """
-        self.name = name
+    name = Column(Text, primary_key=True, nullable=False)
 
     def __repr__(self):
         """Return the representation of the object

@@ -2,31 +2,42 @@
 Network Interface Card
 
 """
-import sqlalchemy
+from sqlalchemy import orm
+from sqlalchemy import Boolean
+from sqlalchemy import Column
+from sqlalchemy import ForeignKey
+from sqlalchemy import Text
 
-from apiary import types
+from apiary.types import IPv4Address
+from apiary.types import IPv6Address
+from apiary.types import MacAddress
+from apiary.types import UUID
+from apiary.types import JSONEncodedValue
+
 from apiary.mappers import Base
+from apiary.mappers import mixin
 from apiary.mappers import system
 
 
-class NIC(Base):
-    """A network interface card
+class NIC(Base, mixin.MapperMixin):
+    """Define the attributes and use of a network interface card"""
+    __primary_key__ = 'mac_address'
+    __tablename__ = 'system_nic'
 
-    """
-    __tablename__ = 'system_nics'
-
-    mac_address = sqlalchemy.Column(sqlalchemy.TEXT, primary_key=True,
-                                    nullable=False)
-    system_fk = sqlalchemy.ForeignKey('%s.id' % system.System.__tablename__)
-    system = sqlalchemy.Column(types.UUID, system_fk, nullable=False)
-    enabled = sqlalchemy.Column(sqlalchemy.BOOLEAN, default=False)
-    name = sqlalchemy.Column(sqlalchemy.TEXT, nullable=False)
-    is_bonded = sqlalchemy.Column(sqlalchemy.BOOLEAN, default=False)
-    bonding_nics = sqlalchemy.Column(sqlalchemy.Enum)
-    ip_address = sqlalchemy.Column(sqlalchemy.TEXT)
-    netmask = sqlalchemy.Column(sqlalchemy.TEXT)
-    gateway = sqlalchemy.Column(sqlalchemy.TEXT)
-    dnsname = sqlalchemy.Column(sqlalchemy.TEXT)
+    mac_address = Column(MacAddress, primary_key=True)
+    name = Column(Text, nullable=False)
+    is_enabled = Column(Boolean, nullable=False, default=False)
+    is_bonded = Column(Boolean, nullable=False, default=False)
+    bond = Column(JSONEncodedValue, nullable=True)
+    dns_name = Column(Text, nullable=True, unique=True)
+    ipv4_address = Column(IPv4Address, nullable=True)
+    ipv4_netmask = Column(IPv4Address, nullable=True)
+    ipv4_gateway = Column(IPv4Address, nullable=True)
+    ipv6_address = Column(IPv6Address, nullable=True)
+    ipv6_gateway = Column(IPv6Address, nullable=True)
+    system_id = orm.relationship('NICAssignment',
+                                 backref='mac_address',
+                                 cascade='all, delete')
 
     def __repr__(self):
         """Return the representation of the object
@@ -34,6 +45,26 @@ class NIC(Base):
         :rtype: str
 
         """
-        return "<NIC System %s Address %s IP %s>" % (self.system,
-                                                     self.mac_address,
-                                                     self.ip_address)
+        return '<NIC %s>' % self.mac_address
+
+
+class NICAssignment(Base, mixin.MapperMixin):
+    """A mapping of Systems to Network Interface Cards"""
+    __tablename__ = 'system_nic_assignments'
+
+    system = Column('system_id',
+                    UUID,
+                    ForeignKey(system.System.primary_key),
+                    primary_key=True)
+    nic = Column('nic_id',
+                 MacAddress,
+                 ForeignKey(NIC.primary_key),
+                 primary_key=True)
+
+    def __repr__(self):
+        """Return the representation of the object
+
+        :rtype: str
+
+        """
+        return '<NICAssignment %s to %s>' % (self.nic, self.system)

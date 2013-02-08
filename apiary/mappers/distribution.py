@@ -2,39 +2,41 @@
 Distribution related models
 
 """
-import sqlalchemy
-from sqlalchemy.ext import hybrid
 from sqlalchemy import func
+from sqlalchemy.ext import hybrid
 from sqlalchemy import orm
-import uuid
+from sqlalchemy.sql.expression import select
+
+from sqlalchemy import Column
+from sqlalchemy import ForeignKey
+from sqlalchemy import Text
 
 from apiary.mappers import Base
 from apiary.mappers import architecture
 from apiary.mappers import breed
+from apiary.mappers import mixin
 from apiary.mappers import profile
-from apiary.mappers import system
-from apiary import types
 
 
-class Distribution(Base):
+class Distribution(Base, mixin.MapperMixin):
     """The top level object for an Operating System to install on systems is
     a Distribution.
 
     """
-    __tablename__ = 'distributions'
-    __columns__ = ['name', 'version', 'architecture', 'breed', 'profiles']
     __append__ = ['profile_count']
+    __columns__ = ['name', 'version', 'architecture', 'breed', 'profiles']
+    __primary_key__ = 'name'
+    __tablename__ = 'distributions'
 
-    name = sqlalchemy.Column(sqlalchemy.TEXT, primary_key=True, nullable=False)
-    version = sqlalchemy.Column(sqlalchemy.TEXT, nullable=False)
-    arch_fk = sqlalchemy.ForeignKey('%s.name' %
-                                    architecture.Architecture.__tablename__)
-    architecture = sqlalchemy.Column(sqlalchemy.TEXT, arch_fk)
-    breed_fk = sqlalchemy.ForeignKey('%s.name' % breed.Breed.__tablename__)
-    breed = sqlalchemy.Column(sqlalchemy.TEXT, breed_fk)
-    kernel = sqlalchemy.Column(sqlalchemy.TEXT)
-    initrd = sqlalchemy.Column(sqlalchemy.TEXT)
-    kernel_options = sqlalchemy.Column(sqlalchemy.TEXT)
+    name = Column(Text, primary_key=True, nullable=False)
+    version = Column(Text, nullable=False)
+    architecture = Column(Text,
+                          ForeignKey(architecture.Architecture.primary_key),
+                          nullable=False)
+    breed = Column(Text, ForeignKey(breed.Breed.primary_key), nullable=False)
+    kernel = Column(Text)
+    initrd = Column(Text)
+    kernel_options = Column(Text)
 
     profiles = orm.relationship("Profile")
 
@@ -54,6 +56,6 @@ class Distribution(Base):
 
     @profile_count.expression
     def profile_count(cls):
-        return (sqlalchemy.select([func.count(profile.Profile.name)]).
-                sqlalchemy.where(profile.Profile.distribution == cls.name).
-                sqlalchemy.label("profile_count"))
+        return (select([func.count(profile.Profile.name)]).
+                where(profile.Profile.distribution == cls.name).
+                label("profile_count"))
