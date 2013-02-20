@@ -1,7 +1,16 @@
-<ul>
-  <li><a href="#" title="Previous Page"><i class="icon icon-left-arrow"></i></a></li>
-  <li class="active"><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#" title="Next Page"><i class="icon icon-right-arrow"></i></a></li>
-</ul>
+<div class="pager btn-toolbar pull-right form form-inline" id="pager">
+    <div class="btn-group">
+      <button class="btn first" title="First"><i class="icon icon-fast_backward"></i></button>
+      <button class="btn prev" title="Previous"><i class="icon icon-step_backward"></i></button>
+      <span class="pagedisplay">0 to 0 of 0</span>
+      <button class="btn next" title="Next"><i class="icon icon-step_forward"></i></button>
+      <button class="btn last" title="Last"><i class="icon icon-fast_forward"></i></button>
+    </div>
+    <select class="pagesize input-mini" title="Items per page" style="margin-left: 10px; width: auto;">
+      <option value="10" selected>10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="500">500</option>
+    </select>
+</div>

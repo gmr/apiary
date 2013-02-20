@@ -19,6 +19,7 @@ html, body {
 
 #content {
   padding-top: 60px;
+  overflow-y: auto;
 }
 
 #page {
@@ -27,6 +28,7 @@ html, body {
   height: 100%;
 /* Negative indent footer by it's height */
   margin: 0 auto -30px;
+  z-index: 500;
 }
 
 push,
@@ -38,6 +40,7 @@ footer {
 
 footer {
   border-top: 1px solid @hrBorder;
+  z-index: 1000;
 }
 
 
@@ -65,9 +68,18 @@ h1 {
   }
 }
 
+.align-left {
+  text-align: left;
+}
+
 .align-center {
   text-align: center;
 }
+
+.align-right {
+  text-align: right;
+}
+
 
 .table {
   margin-bottom: 10px;
@@ -81,20 +93,6 @@ h1 {
       }
     }
   }
-}
-
-.table-sort-asc {
-  background-image: url("/static/img/icons/table-sort-up.png");
-  background-repeat: no-repeat;
-  background-position: center left;
-  color:  @blue;
-}
-
-.table-sort-desc {
-  background-image: url("/static/img/icons/table-sort-down.png");
-  background-repeat: no-repeat;
-  background-position: center left;
-  color:  @blue;
 }
 
 .btn-toolbar {
@@ -175,4 +173,20 @@ time {
 .delete-tag {
   color: white;
   margin-left: .5em;
+}
+.pagination {
+  margin-top: 0;
+}
+.pager {
+  margin: 0;
+}
+
+.icon-column {
+  text-align: center;
+  vertical-align: middle;
+  width: 30px;
+}
+
+.modal-body {
+  min-height: 150px;
 }

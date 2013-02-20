@@ -1,0 +1,5 @@
+// @codekit-append "jquery.tablesorter.js"
+// @codekit-append "jquery.tablesorter.metadata.js"
+// @codekit-append "jquery.tablesorter.pager.js"
+// @codekit-append "jquery.tablesorter.widgets.js"
+// @codekit-append "jquery.tablesorter.widgets-filter-formatter.js"

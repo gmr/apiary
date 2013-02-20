@@ -9,61 +9,63 @@
  */
 
 // CSS Reset
-@import "reset.less";
+@import "third-party/bootstrap/reset.less";
 
 // Core variables and mixins
 @import "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import "mixins.less";
+@import "third-party/bootstrap/mixins.less";
 
 // Grid system and page structure
-@import "scaffolding.less";
-@import "grid.less";
-@import "layouts.less";
+@import "third-party/bootstrap/scaffolding.less";
+@import "third-party/bootstrap/grid.less";
+@import "third-party/bootstrap/layouts.less";
 
 // Base CSS
-@import "type.less";
-@import "code.less";
-@import "forms.less";
-@import "tables.less";
+@import "third-party/bootstrap/type.less";
+@import "third-party/bootstrap/code.less";
+@import "third-party/bootstrap/forms.less";
+@import "third-party/bootstrap/tables.less";
 
 // Components: common
-@import "sprites.less";
-@import "dropdowns.less";
-@import "wells.less";
-@import "component-animations.less";
-@import "close.less";
+@import "third-party/bootstrap/sprites.less";
+@import "third-party/glyphicons/glyphicons.less";
+
+@import "third-party/bootstrap/dropdowns.less";
+@import "third-party/bootstrap/wells.less";
+@import "third-party/bootstrap/component-animations.less";
+@import "third-party/bootstrap/close.less";
 
 // Components: Buttons & Alerts
-@import "buttons.less";
-@import "button-groups.less";
-@import "alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+@import "third-party/bootstrap/buttons.less";
+@import "third-party/bootstrap/button-groups.less";
+@import "third-party/bootstrap/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
 
 // Components: Nav
-@import "navs.less";
-@import "navbar.less";
-@import "breadcrumbs.less";
-@import "pagination.less";
-@import "pager.less";
+@import "third-party/bootstrap/navs.less";
+@import "third-party/bootstrap/navbar.less";
+@import "third-party/bootstrap/breadcrumbs.less";
+@import "third-party/bootstrap/pagination.less";
+@import "third-party/bootstrap/pager.less";
 
 // Components: Popovers
-@import "modals.less";
-@import "tooltip.less";
-@import "popovers.less";
+@import "third-party/bootstrap/modals.less";
+@import "third-party/bootstrap/tooltip.less";
+@import "third-party/bootstrap/popovers.less";
 
 // Components: Misc
-@import "thumbnails.less";
-@import "media.less";
-@import "labels-badges.less";
-@import "progress-bars.less";
-@import "accordion.less";
-@import "carousel.less";
-@import "hero-unit.less";
+@import "third-party/bootstrap/thumbnails.less";
+@import "third-party/bootstrap/media.less";
+@import "third-party/bootstrap/labels-badges.less";
+@import "third-party/bootstrap/progress-bars.less";
+@import "third-party/bootstrap/accordion.less";
+@import "third-party/bootstrap/carousel.less";
+@import "third-party/bootstrap/hero-unit.less";
 
-// Add in css for a PNG of glyphicons-free
-@import "glyphicons.less";
+// jQuery Tablesorter
+@import "third-party/jquery.tablesorter/tablesorter.less";
 
 // Override Bootstrap values that do not have variables
 @import "overrides.less";
 
 // Utility classes
-@import "utilities.less"; // Has to be last to override when necessary
+@import "third-party/bootstrap/utilities.less"; // Has to be last to override when necessary
