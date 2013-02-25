@@ -1,4 +1,8 @@
-var Models = Models || { };
-
-Models.Distribution = Backbone.Model.extend({url: '/api/distribution',
-                                             idAttribute: "name"});
+define(
+    "models/distribution",
+    ["backbone"],
+    function(Backbone) {
+      return Backbone.Model.extend({url: '/api/distribution',
+                                    idAttribute: "name"});
+    }
+);

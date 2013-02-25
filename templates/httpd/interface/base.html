@@ -1,5 +1,6 @@
 {% extends "../base.html" %}
 {% block container %}container-fluid{% end %}
 {% block footer_javascript %}
-<script  src="{{static_url('js/site.min.js')}}"></script>
+<script data-main="/static/js/main" src="{{static_url('js/libs/require/require.js')}}"></script>
+<script  src=""></script>
 {% end %}

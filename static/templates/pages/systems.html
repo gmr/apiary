@@ -1,8 +1,8 @@
 <div class="row-fluid">
-  <ul class="breadcrumb">
-    <li><a href="#"><i class="icon icon-home"></i></a> <span class="divider">/</span></li>
-    <li class="active">Systems</li>
-  </ul>
+  <div id="legend-dismissed" class="alert alert-info hide">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <i class="icon icon-circle_info icon-information"></i> The table icon legend dismissed. To re-enable the legend, <a href="#preferences">visit user preferences</a>.
+  </div>
 </div>
 <div class="row-fluid">
   <div class="span10">
@@ -24,25 +24,8 @@
         </div>
       </div>
     </div>
-    <div class="pagination pagination-right">
-      <div class="pager btn-toolbar pull-right form form-inline">
-        <select class="pagesize input-mini"  rel="tooltip" title="Items per page" style="margin-left: 10px; width: auto;">
-          <option value="10" selected>10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-          <option value="500">500</option>
-        </select>
-        <label class="pager">Items per Page</label>
-        <div class="btn-group">
-          <button class="btn first" title="First"><i class="icon icon-fast_backward"></i></button>
-          <button class="btn prev" title="Previous"><i class="icon icon-step_backward"></i></button>
-          <button class="btn next" title="Next"><i class="icon icon-step_forward"></i></button>
-          <button class="btn last" title="Last"><i class="icon icon-fast_forward"></i></button>
-        </div>
-      </div>
-    </div>
-    <table id="items">
+    <div class="pagination pagination-top pagination-right"></div>
+    <table id="systems">
       <thead>
       <tr>
         <th class="align-center"><i class="icon icon-unchecked"></i></th>
@@ -76,28 +59,10 @@
         </tr>
       </tbody>
     </table>
-    <p class="pager pull-left"><strong>Systems <span class="pagedisplay">0 of 0</span></strong></p>
-    <div class="pagination pagination-right">
-      <div class="pager btn-toolbar pull-right form form-inline">
-        <select class="pagesize input-mini" title="Items per page" style="margin-left: 10px; width: auto;">
-          <option value="10" selected>10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-          <option value="500">500</option>
-        </select>
-        <label class="pager">Items per Page</label>
-        <div class="btn-group">
-          <button class="btn first" title="First"><i class="icon icon-fast_backward"></i></button>
-          <button class="btn prev" title="Previous"><i class="icon icon-step_backward"></i></button>
-          <button class="btn next" title="Next"><i class="icon icon-step_forward"></i></button>
-          <button class="btn last" title="Last"><i class="icon icon-fast_forward"></i></button>
-        </div>
-      </div>
-    </div>
+    <div class="pagination pagination-bottom pagination-right"></div>
   </div>
-  <div class="span2 well well-small" id="table-legend">
-    <button type="button" class="close" data-dismiss="table-legend">&times;</button>
+  <div class="span2 page-legend well well-small" id="table-legend">
+    <button type="button" class="close" data-dismiss="page-legend" aria-hidden="true">&times;</button>
     <h1>Legend</h1>
     <dl class="dl-horizontal legend">
       <dt><i class="icon icon-success icon-thumbs_up"></i></dt>
@@ -134,6 +99,7 @@
             <option>Mac Address</option>
             <option>Provisioning Enabled</option>
             <option>Status</option>
+            <option>Tag</option>
           </select>
         </td>
         <td>
@@ -150,10 +116,12 @@
         <td class="span1"></td>
       </tr>
     </table>
-
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     <button class="btn btn-primary"><i class="icon icon-white icon-filter"></i> Filter</button>
   </div>
 </div>
+<script type="text/plain" id="pager-output-nofilter">
+  Page {page} of {totalPages} &mdash; Displaying {size} of {totalRows} Systems
+</script>

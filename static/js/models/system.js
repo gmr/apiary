@@ -1,4 +1,8 @@
-var Models = Models || { };
-
-Models.System = Backbone.Model.extend({urlRoot: '/api/system/',
-                                       idAttribute: "id"});
+define(
+    "models/system",
+    ["backbone"],
+    function(Backbone) {
+      return Backbone.Model.extend({url: '/api/system',
+                                     idAttribute: "uid"});
+    }
+);

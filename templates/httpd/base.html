@@ -24,14 +24,14 @@
           </div>
         </div>
       </div>
+      <div id="breadcrumbs" class="row-fluid">
+        <ul class="breadcrumb">
+          <li class="active"><i class="icon icon-home"></i> Apiary Initializing</li>
+        </ul>
+      </div>
       {% block content %}
       <div id="content">
-        <div class="row-fluid">
-          <div class="span4 offset4 align-center loading">
-            <img src="{{static_url('img/logo200px.png')}}">
-            <p class="lead">Loading&hellip;</p>
-          </div>
-        </div>
+        <p class="lead initializing">Initializing Apiary&hellip;</p>
       </div>
       {% end %}
       <div class="push"></div>

@@ -1308,16 +1308,20 @@ a.label:hover,a.badge:hover{color:#ffffff;text-decoration:none;cursor:pointer;}
 .tablesorter-header i.tablesorter-icon{position:absolute;right:2px;top:50%;margin-top:-7px;width:14px;height:14px;background-repeat:no-repeat;line-height:14px;display:inline-block;}
 .tablesorter-processing{background-image:url('data:image/gif;base64,R0lGODlhFAAUAKEAAO7u7lpaWgAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQBCgACACwAAAAAFAAUAAACQZRvoIDtu1wLQUAlqKTVxqwhXIiBnDg6Y4eyx4lKW5XK7wrLeK3vbq8J2W4T4e1nMhpWrZCTt3xKZ8kgsggdJmUFACH5BAEKAAIALAcAAAALAAcAAAIUVB6ii7jajgCAuUmtovxtXnmdUAAAIfkEAQoAAgAsDQACAAcACwAAAhRUIpmHy/3gUVQAQO9NetuugCFWAAAh+QQBCgACACwNAAcABwALAAACE5QVcZjKbVo6ck2AF95m5/6BSwEAIfkEAQoAAgAsBwANAAsABwAAAhOUH3kr6QaAcSrGWe1VQl+mMUIBACH5BAEKAAIALAIADQALAAcAAAIUlICmh7ncTAgqijkruDiv7n2YUAAAIfkEAQoAAgAsAAAHAAcACwAAAhQUIGmHyedehIoqFXLKfPOAaZdWAAAh+QQFCgACACwAAAIABwALAAACFJQFcJiXb15zLYRl7cla8OtlGGgUADs=');position:absolute;z-index:1000;}
 .pager>label{margin:0 2em 0 .5em;}
+.pageinfo{text-align:center;vertical-align:bottom;font-weight:bold;padding-top:.5em;}
+.pageinfo-bottom{font-weight:bold;text-align:left;padding-left:1em;}
 html,body{height:100%;}
 .navbar .brand{text-shadow:none !important;margin-left:0;padding:8px 20px 0 0;}
 .navbar .nav li a,.navbar .nav li a.active{text-shadow:none !important;}
-#content{padding-top:60px;overflow-y:auto;}
+#breadcrumbs{padding-top:60px;}
+#content{overflow-y:auto;}
 #page{min-height:100%;height:auto !important;height:100%;margin:0 auto -30px;z-index:500;}
 push,footer{height:30px;background-color:#fefefe;padding:2px 1em;}
 footer{border-top:1px solid #eeeeee;z-index:1000;}
 h1{width:100%;padding:0;margin-bottom:20px;font-size:21px;line-height:40px;color:#333333;font-weight:normal;border-bottom:1px solid #e5e5e5;}
 .login-box{width:400px;text-align:left;margin-left:auto;margin-right:auto;}.login-box .control-label{width:100px;}
 .login-box .controls{margin-left:120px;}
+.initializing{text-align:center;margin-top:5em;}
 .align-left{text-align:left;}
 .align-center{text-align:center;}
 .align-right{text-align:right;}
