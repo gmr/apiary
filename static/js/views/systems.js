@@ -102,7 +102,6 @@ define(
       setup_icon_legend: function()
       {
         var hidden = document.apiary.get_item('systems:hide_legend');
-        console.log(hidden);
         if ( hidden === null || hidden === false )
         {
           this.bind_icon_legend_close();

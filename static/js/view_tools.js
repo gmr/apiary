@@ -83,6 +83,15 @@ define(
                                 output: this.pager_output().replace('{size}', items_per_page),
                                 page: current_page,
                                 size: items_per_page});
+        var _this = this;
+        table.bind('pagerComplete pageMoved', function(e, c) {
+          var items = c.endRow - c.startRow + 1;
+          _.each($('.pagedisplay'), function(item){
+            var ref = $(item);
+            ref.html(ref.html().replace('{count}', items));
+          });
+        });
+
         // Hack to overwrite tablesorter's hijack of the cell
         table.find("thead > tr > th:first-child").html('<i class="icon icon-unchecked"></i>');
         this.bind_pagination(table);
